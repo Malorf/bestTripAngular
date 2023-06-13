@@ -4,10 +4,8 @@ export class Review {
     comment!:string;
     userRating!:number;
     reviewObjectId!:number;
-    enum reviewObjectType {
+    reviewObjectType!:{
         TravelGuide, Place, Transport
-
-
-    };
+ };
     
 }
