@@ -4,9 +4,8 @@ export class Review {
     comment!:string;
     userRating!:number;
     reviewObjectId!:number;
-   
-
-
-    }
+    reviewObjectType!:{
+       TravelGuide, Place, Transport
+ };
     
-
+}

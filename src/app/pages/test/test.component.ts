@@ -2,10 +2,10 @@ import { Component, OnInit } from "@angular/core";
 import Chart from 'chart.js';
 
 @Component({
-  selector: "app-rtl",
-  templateUrl: "rtl.component.html"
+  selector: "app-test",
+  templateUrl: "test.component.html"
 })
-export class RtlComponent implements OnInit {
+export class TestComponent implements OnInit {
   public canvas : any;
   public ctx;
   public datasets: any;
@@ -317,9 +317,9 @@ export class RtlComponent implements OnInit {
     gradientStroke.addColorStop(0, 'rgba(233,32,16,0)'); //red colors
 
     var data = {
-      labels: ['يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'],
+      labels: ['JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
       datasets: [{
-        label: "البيانات",
+        label: "Data",
         fill: true,
         backgroundColor: gradientStroke,
         borderColor: '#ec250d',
@@ -355,9 +355,9 @@ export class RtlComponent implements OnInit {
     gradientStroke.addColorStop(0, 'rgba(66,134,121,0)'); //green colors
 
     var data = {
-      labels: ['يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر'],
+      labels: ['JUL', 'AUG', 'SEP', 'OCT', 'NOV'],
       datasets: [{
-        label: "مجموعة بياناتي الأولى",
+        label: "My First dataset",
         fill: true,
         backgroundColor: gradientStroke,
         borderColor: '#00d6b4',
@@ -384,7 +384,7 @@ export class RtlComponent implements OnInit {
 
 
 
-    var chart_labels = ['يناير', 'فبراير', 'مارس', 'أبريل', ' مايو', ' يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
+    var chart_labels = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
     this.datasets = [
       [100, 70, 90, 70, 85, 60, 75, 60, 90, 80, 110, 100],
       [80, 120, 105, 110, 95, 105, 90, 100, 80, 95, 70, 120],
@@ -408,7 +408,7 @@ export class RtlComponent implements OnInit {
       data: {
         labels: chart_labels,
         datasets: [{
-          label: "مجموعة بياناتي الأولى",
+          label: "My First dataset",
           fill: true,
           backgroundColor: gradientStroke,
           borderColor: '#ec250d',
@@ -446,9 +446,9 @@ export class RtlComponent implements OnInit {
         display: false
       },
       data: {
-        labels: ['الولايات المتحدة الأمريكية', 'ألمانيا', 'أستراليا', 'المملكة المتحدة', 'رومانيا', 'البرازيل'],
+        labels: ['USA', 'GER', 'AUS', 'UK', 'RO', 'BR'],
         datasets: [{
-          label: "بلدان",
+          label: "Countries",
           fill: true,
           backgroundColor: gradientStroke,
           hoverBackgroundColor: gradientStroke,

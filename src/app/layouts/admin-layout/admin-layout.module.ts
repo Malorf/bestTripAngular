@@ -12,9 +12,11 @@ import { ReviewComponent } from "../../pages/review/review.component";
 import { UserComponent } from "../../pages/user/user.component";
 import { RecommendationsComponent } from "../../pages/recommendations/recommendations.component";
 import { TypographyComponent } from "../../pages/typography/typography.component";
-// import { RtlComponent } from "../../pages/rtl/rtl.component";
+import { TravelGuideComponent } from "../../pages/travelguide/travelguide.component";
+
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { NewsletterComponent } from "src/app/pages/newsletter/newsletter/newsletter.component";
 
 @NgModule({
   imports: [
@@ -28,11 +30,12 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     DashboardComponent,
     UserComponent,
     RecommendationsComponent,
-    IconsComponent,
-    TypographyComponent,
     ReviewComponent,
+    TravelGuideComponent,
+    TypographyComponent,
     MapComponent,
-    // RtlComponent
+    NewsletterComponent,
+
   ]
 })
 export class AdminLayoutModule {}

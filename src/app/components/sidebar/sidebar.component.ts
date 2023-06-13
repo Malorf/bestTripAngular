@@ -16,6 +16,13 @@ export const ROUTES: RouteInfo[] = [
     class: ""
   },
   {
+    path: "/test",
+    title: "Test",
+    rtlTitle: "لوحة القيادة",
+    icon: "icon-chart-pie-36",
+    class: ""
+  },
+  {
     path: "/icons",
     title: "Icons",
     rtlTitle: "الرموز",
@@ -58,11 +65,19 @@ export const ROUTES: RouteInfo[] = [
     class: ""
   },
   {
-    path: "/rtl",
-    title: "RTL Support",
+    path: "/travelguide",
+    title: "TravelGuide",
     rtlTitle: "ار تي ال",
     icon: "icon-world",
     class: ""
+  },
+  {
+    path: "/newsletter",
+    title: "Newsletter",
+    rtlTitle: "ار تي ال",
+    icon: "icon-world",
+    class: ""
+
   }
 ];
 
