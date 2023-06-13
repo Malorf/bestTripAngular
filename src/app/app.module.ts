@@ -15,6 +15,10 @@ import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 @NgModule({
   imports: [
     BrowserAnimationsModule,
