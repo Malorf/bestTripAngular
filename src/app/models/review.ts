@@ -5,4 +5,8 @@ export class Review {
     userRating!:number;
     reviewObjectId!:number;
    
-}
+
+
+    }
+    
+
