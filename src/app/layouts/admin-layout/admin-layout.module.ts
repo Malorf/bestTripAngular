@@ -5,18 +5,21 @@ import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 
 import { AdminLayoutRoutes } from "./admin-layout.routing";
-import { DashboardComponent } from "../../pages/dashboard/dashboard.component";
+import { ExperienceComponent } from "../../pages/experience/experience.component";
 import { IconsComponent } from "../../pages/icons/icons.component";
 import { MapComponent } from "../../pages/map/map.component";
 import { ReviewComponent } from "../../pages/review/review.component";
 import { UserComponent } from "../../pages/user/user.component";
-import { RecommendationsComponent } from "../../pages/recommendations/recommendations.component";
 import { TypographyComponent } from "../../pages/typography/typography.component";
 import { TravelGuideComponent } from "../../pages/travelguide/travelguide.component";
 
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { NewsletterComponent } from "src/app/pages/newsletter/newsletter/newsletter.component";
+
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { TransportsComponent } from "../../pages/transport/transport.component";
+import { PlaceComponent } from "../../pages/place/place.component";
 
 @NgModule({
   imports: [
@@ -27,7 +30,7 @@ import { NewsletterComponent } from "src/app/pages/newsletter/newsletter/newslet
     NgbModule,
   ],
   declarations: [
-    DashboardComponent,
+    ExperienceComponent,
     UserComponent,
     RecommendationsComponent,
     ReviewComponent,
@@ -36,6 +39,12 @@ import { NewsletterComponent } from "src/app/pages/newsletter/newsletter/newslet
     MapComponent,
     NewsletterComponent,
 
+    TransportsComponent,
+    IconsComponent,
+    TypographyComponent,
+    MapComponent,
+    PlaceComponent,
+    
   ]
 })
 export class AdminLayoutModule {}
