@@ -15,9 +15,9 @@ import { TravelGuideComponent } from "../../pages/travelguide/travelguide.compon
 
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { NewsletterComponent } from "src/app/pages/newsletter/newsletter/newsletter.component";
+import { NewsletterComponent } from "../../pages/newsletter/newsletter/newsletter.component";
 
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+
 import { TransportsComponent } from "../../pages/transport/transport.component";
 import { PlaceComponent } from "../../pages/place/place.component";
 
@@ -32,7 +32,6 @@ import { PlaceComponent } from "../../pages/place/place.component";
   declarations: [
     ExperienceComponent,
     UserComponent,
-    RecommendationsComponent,
     ReviewComponent,
     TravelGuideComponent,
     TypographyComponent,
