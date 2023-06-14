@@ -4,24 +4,35 @@ import { ExperienceComponent } from "../../pages/experience/experience.component
 import { IconsComponent } from "../../pages/icons/icons.component";
 import { MapComponent } from "../../pages/map/map.component";
 import { UserComponent } from "../../pages/user/user.component";
+
+import { ReviewComponent } from "../../pages/review/review.component";
+import { TravelGuideComponent } from "../../pages/travelguide/travelguide.component";
+import { NewsletterComponent } from "src/app/pages/newsletter/newsletter/newsletter.component";
+
 import { TypographyComponent } from "../../pages/typography/typography.component";
-import { TransportsComponent } from "src/app/pages/transport/transport.component";
+import { TransportsComponent } from "../../pages/transport/transport.component";
 import { PlaceComponent } from "../../pages/place/place.component";
 import { HomeComponent } from "../../pages/home/home.component";
-import { LoginComponent } from "src/app/pages/login/login.component";
-// import { RtlComponent } from "../../pages/rtl/rtl.component";
+import { LoginComponent } from "../../pages/login/login.component";
+
+
 
 export const AdminLayoutRoutes: Routes = [
 
   { path: "experience", component: ExperienceComponent },
   { path: "home", component: HomeComponent },
-  { path: "dashboard", component: DashboardComponent },
   { path: "icons", component: IconsComponent },
   { path: "maps", component: MapComponent },
   { path: "user", component: UserComponent },
   { path: "transports", component: TransportsComponent },
   { path: "typography", component: TypographyComponent },
+
+  { path: "travelguide", component: TravelGuideComponent },
+  { path: "review", component: ReviewComponent },
+  { path: "newsletter", component: NewsletterComponent },
+  
+
   { path: "place", component: PlaceComponent },
   { path: "login", component: LoginComponent}
-  // { path: "rtl", component: RtlComponent }
+
 ];

@@ -7,3 +7,15 @@ export class Place {
    placeRating!:number;
    placeCost!:number;
 }
+
+class Restaurant extends Place {
+   takeAway!:boolean;
+}
+
+class Hotel extends Place {
+   stars!:number;
+}
+
+class Activity extends Place {
+   free!:boolean;
+}
