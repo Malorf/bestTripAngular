@@ -5,7 +5,7 @@ import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 
 import { AdminLayoutRoutes } from "./admin-layout.routing";
-import { DashboardComponent } from "../../pages/dashboard/dashboard.component";
+import { ExperienceComponent } from "../../pages/experience/experience.component";
 import { IconsComponent } from "../../pages/icons/icons.component";
 import { MapComponent } from "../../pages/map/map.component";
 import { UserComponent } from "../../pages/user/user.component";
@@ -25,7 +25,7 @@ import { PlaceComponent } from "../../pages/place/place.component";
     NgbModule,
   ],
   declarations: [
-    DashboardComponent,
+    ExperienceComponent,
     UserComponent,
     TransportsComponent,
     IconsComponent,
