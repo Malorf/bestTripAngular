@@ -9,11 +9,12 @@ import { DashboardComponent } from "../../pages/dashboard/dashboard.component";
 import { IconsComponent } from "../../pages/icons/icons.component";
 import { MapComponent } from "../../pages/map/map.component";
 import { UserComponent } from "../../pages/user/user.component";
-import { RecommendationsComponent } from "../../pages/recommendations/recommendations.component";
 import { TypographyComponent } from "../../pages/typography/typography.component";
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { TransportsComponent } from "../../pages/transport/transport.component";
+import { PlaceComponent } from "../../pages/place/place.component";
 
 @NgModule({
   imports: [
@@ -26,10 +27,11 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
   declarations: [
     DashboardComponent,
     UserComponent,
-    RecommendationsComponent,
+    TransportsComponent,
     IconsComponent,
     TypographyComponent,
     MapComponent,
+    PlaceComponent,
     // RtlComponent
   ]
 })
