@@ -38,9 +38,9 @@
     <div class="col-md-12">
       <div class="form-group">
           <h2>Choose a means of transport</h2>
-          <select class="form-control">
-            <option>
-                SelectTransportType
+          <select multiple name="transport" [(ngModel)]="transport.transports" class="form-control">
+            <option *ngFor="let p of transports" [ngValue]="t">
+                {{t.nameCompany}}
             </option>
         </select>
       </div>
