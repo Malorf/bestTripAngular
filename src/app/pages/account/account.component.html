@@ -1,0 +1,100 @@
+<div class="content">   
+    <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header mb-5">
+          <h1 class=" card-title">Sign In</h1>
+        </div>
+        <div class=" card-body">
+              </div>
+              <div class=" typography-line">
+                    <div>
+                        <h2>Create New Account</h2>
+                        <div [hidden]="!authenticated()"> <!-- authenticated = true -->
+                            <div>
+                                <h1>Ajouter un utilisateur</h1>
+                                <form (ngSubmit)="saveAccount()">
+                                    <table>
+                                        <tr>
+                                            <td>Username</td>
+                                            <td><input type="text" [(ngModel)]="account.username" name="username"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Password</td>
+                                            <td><input type="text" [(ngModel)]="account.password" name="password"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>eMail</td>
+                                            <td><input type="text" [(ngModel)]="account.eMail" name="eMail"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Profile Name</td>
+                                            <td><input type="text" [(ngModel)]="account.profileName" name="profileName"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Do you want to subscribe to our newsletter ?</td>
+                                            <td><input type="checkbox" [(ngModel)]="account.sub" name="sub"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Roles</td>
+                                            <td>
+                                                <select  name="roles" [(ngModel)]="account.roles" multiple>
+                                                    <option *ngFor="let r of roles" [ngValue]="r">
+                                                        {{r.libelle}}
+                                                    </option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"><button>Ajouter</button></td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                            <div>
+                                <form (ngSubmit)="onSubmit()">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                Nom
+                                            </td>
+                                            <td>
+                                                <input type="text" [(ngModel)]="account.username" name="username"/>
+                                            </td>
+                                        </tr>
+                                            <td colspan="2">
+                                                <button type="submit">Recherche</button>
+                                            </td>
+                                        <tr>
+                            
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                            <div>
+                                <table [hidden]="authorities()">
+                                    <tr>
+                                        <td>Profile Name</td>
+                                        <td>Username</td>
+                                        <td>Password</td>
+                                        <td>Action</td>
+                                    </tr>
+                                    <tr *ngFor="let a of accounts">
+                                        <td>{{u.profileName}}</td>
+                                        <td>{{u.username}}</td>
+                                        <td>{{u.password}}</td>
+                                        <td><button (click)="deleteAccount(a.idAccount)">Delete</button></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            </div>
+                            <div [hidden]="authenticated()">
+                                <p>Connectez-vous pour afficher l'interface des utilisateurs</p>
+                            </div>
+                            
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>
+</div>
