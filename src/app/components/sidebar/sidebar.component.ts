@@ -15,6 +15,7 @@ export const ROUTES: RouteInfo[] = [
     icon: "icon-atom",
     class: ""
   },
+  {
     path: "/home",
     title: "Home",
     rtlTitle: "لوحة القيادة",
