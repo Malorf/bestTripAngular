@@ -7,8 +7,6 @@ import { UserComponent } from "../../pages/user/user.component";
 
 import { ReviewComponent } from "../../pages/review/review.component";
 import { TravelGuideComponent } from "../../pages/travelguide/travelguide.component";
-import { RecommendationsComponent } from "../../pages/recommendations/recommendations.component";
-import { TypographyComponent } from "../../pages/typography/typography.component";
 import { NewsletterComponent } from "src/app/pages/newsletter/newsletter/newsletter.component";
 
 import { TypographyComponent } from "../../pages/typography/typography.component";
@@ -31,7 +29,7 @@ export const AdminLayoutRoutes: Routes = [
 
   { path: "travelguide", component: TravelGuideComponent },
   { path: "review", component: ReviewComponent },
-  { path: "newsletter", component: NewsletterComponent }
+  { path: "newsletter", component: NewsletterComponent },
   
 
   { path: "place", component: PlaceComponent },

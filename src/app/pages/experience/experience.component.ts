@@ -14,6 +14,8 @@ users!:any[];
 accounts!:any[]
 user:Experience=new Experience();
 
+date!:Date;
+
 selectedFiles:FileList;
 currentFileUpload:File;
 
@@ -23,12 +25,23 @@ ngOnInit(): void {
   this.findAllExperiences();
 
  /* this.findAllAccounts();*/
+ this.date,'yyyy-MM-dd';
+ this.findByUpdateExp();
 }
 findAllExperiences(){
   
   this.experienceService.findAll().subscribe(data => {this.accountss = data});
 }
 
+findByUpdateExp(){
+  this.experienceService.findByUpdateExp(this.date).subscribe(data=>{
+    this.users =data;
+  })
+}
+
+onSubmit(){
+  this.findByUpdateExp();
+}
 /*findAllAccounts(){
   this.accountService.findAll().subscribe(data => {this.accounts = data});
 }*/
