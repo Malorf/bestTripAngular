@@ -10,7 +10,6 @@ import { IconsComponent } from "../../pages/icons/icons.component";
 import { MapComponent } from "../../pages/map/map.component";
 import { UserComponent } from "../../pages/user/user.component";
 import { TypographyComponent } from "../../pages/typography/typography.component";
-// import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { TransportsComponent } from "../../pages/transport/transport.component";
@@ -32,7 +31,7 @@ import { PlaceComponent } from "../../pages/place/place.component";
     TypographyComponent,
     MapComponent,
     PlaceComponent,
-    // RtlComponent
+    
   ]
 })
 export class AdminLayoutModule {}
