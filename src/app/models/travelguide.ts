@@ -1,3 +1,4 @@
+import { FormControl } from "@angular/forms";
 
 export class TravelGuide {
     idTravelGuide!: number;
@@ -5,6 +6,8 @@ export class TravelGuide {
     globalRating!:string;
     countryName!:string;
     updateTravelGuide!:Date;
+    searchCtrl!:FormControl;
+    searchTypeCtrl!:FormControl;
     statusTravelGuide!:{
         waiting, approved, refused
 

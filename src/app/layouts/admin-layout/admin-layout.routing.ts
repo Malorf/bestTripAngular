@@ -8,6 +8,7 @@ import { UserComponent } from "../../pages/user/user.component";
 import { ReviewComponent } from "../../pages/review/review.component";
 import { TravelGuideComponent } from "../../pages/travelguide/travelguide.component";
 import { NewsletterComponent } from "../../pages/newsletter/newsletter/newsletter.component";
+
 import { TypographyComponent } from "../../pages/typography/typography.component";
 import { TransportsComponent } from "../../pages/transport/transport.component";
 import { PlaceComponent } from "../../pages/place/place.component";
@@ -31,6 +32,6 @@ export const AdminLayoutRoutes: Routes = [
   { path: "review", component: ReviewComponent },
   { path: "newsletter", component: NewsletterComponent },
   { path: "place", component: PlaceComponent },
-  { path: "login", component: LoginComponent}
+  { path: "login", component: LoginComponent},
 
 ];
