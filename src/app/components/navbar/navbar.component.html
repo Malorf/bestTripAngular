@@ -25,18 +25,6 @@
     </button>
     <div class=" navbar-collapse" [ngbCollapse]="isCollapsed" id="navigation">
       <ul class=" navbar-nav ml-auto">
-        <li class=" search-bar input-group">
-          <button
-            class=" btn btn-link"
-            data-target="#searchModal"
-            data-toggle="modal"
-            (click)="open(content)"
-            id="search-button"
-          >
-            <i class=" tim-icons icon-zoom-split"> </i>
-            <span class=" d-lg-none d-md-block"> Search </span>
-          </button>
-        </li>
         <li class=" nav-item" ngbDropdown>
           <a
             class=" nav-link"
@@ -51,27 +39,7 @@
           <ul class=" dropdown-menu-right dropdown-navbar" ngbDropdownMenu>
             <li class=" nav-link">
               <a class=" nav-item" href="javascript:void(0)" ngbDropdownItem>
-                Mike John responded to your email
-              </a>
-            </li>
-            <li class=" nav-link">
-              <a class=" nav-item" href="javascript:void(0)" ngbDropdownItem>
-                You have 5 more tasks
-              </a>
-            </li>
-            <li class=" nav-link">
-              <a class=" nav-item" href="javascript:void(0)" ngbDropdownItem>
-                Your friend Michael is in town
-              </a>
-            </li>
-            <li class=" nav-link">
-              <a class=" nav-item" href="javascript:void(0)" ngbDropdownItem>
-                Another notification
-              </a>
-            </li>
-            <li class=" nav-link">
-              <a class=" nav-item" href="javascript:void(0)" ngbDropdownItem>
-                Another one
+                Vous avez 5 demandes d'approbations en attente
               </a>
             </li>
           </ul>
@@ -91,18 +59,18 @@
           </a>
           <ul class=" dropdown-navbar" ngbDropdownMenu>
             <li class=" nav-link">
+              <a class=" nav-item" (click)="redirectToLogin()" style="color: black"ngbDropdownItem>
+                Login
+              </a>
+            </li>
+            <li class=" nav-link">
               <a class=" nav-item" href="javascript:void(0)" ngbDropdownItem>
                 Profile
               </a>
             </li>
-            <li class=" nav-link">
-              <a class=" nav-item" href="javascript:void(0)" ngbDropdownItem>
-                Settings
-              </a>
-            </li>
             <li class=" dropdown-divider"></li>
             <li class=" nav-link">
-              <a class=" nav-item" href="javascript:void(0)" ngbDropdownItem>
+              <a class=" nav-item" href="redirectToLogin()" ngbDropdownItem>
                 Log out
               </a>
             </li>
@@ -128,7 +96,6 @@
       class=" close"
       data-dismiss="modal"
       type="button"
-      (click)="modal.dismiss('Cross click')"
     >
       <i class=" tim-icons icon-simple-remove"> </i>
     </button>
