@@ -8,8 +8,14 @@ import { AdminLayoutRoutes } from "./admin-layout.routing";
 import { ExperienceComponent } from "../../pages/experience/experience.component";
 import { IconsComponent } from "../../pages/icons/icons.component";
 import { MapComponent } from "../../pages/map/map.component";
+import { ReviewComponent } from "../../pages/review/review.component";
 import { UserComponent } from "../../pages/user/user.component";
 import { TypographyComponent } from "../../pages/typography/typography.component";
+import { TravelGuideComponent } from "../../pages/travelguide/travelguide.component";
+
+
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { NewsletterComponent } from "src/app/pages/newsletter/newsletter/newsletter.component";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { TransportsComponent } from "../../pages/transport/transport.component";
@@ -26,6 +32,13 @@ import { PlaceComponent } from "../../pages/place/place.component";
   declarations: [
     ExperienceComponent,
     UserComponent,
+    RecommendationsComponent,
+    ReviewComponent,
+    TravelGuideComponent,
+    TypographyComponent,
+    MapComponent,
+    NewsletterComponent,
+
     TransportsComponent,
     IconsComponent,
     TypographyComponent,

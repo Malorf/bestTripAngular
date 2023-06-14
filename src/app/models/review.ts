@@ -5,7 +5,7 @@ export class Review {
     userRating!:number;
     reviewObjectId!:number;
     reviewObjectType!:{
-        TravelGuide, Place, Transport
+       TravelGuide, Place, Transport
  };
     
 }

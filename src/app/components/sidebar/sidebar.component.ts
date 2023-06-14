@@ -91,6 +91,14 @@ export const ROUTES: RouteInfo[] = [
     rtlTitle: "ار تي ال",
     icon: "icon-world",
     class: ""
+  },
+  {
+    path: "/newsletter",
+    title: "Newsletter",
+    rtlTitle: "ار تي ال",
+    icon: "icon-world",
+    class: ""
+
   }
 ];
 
