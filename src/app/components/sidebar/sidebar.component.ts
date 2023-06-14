@@ -64,8 +64,8 @@ export const ROUTES: RouteInfo[] = [
     class: ""
   },
   {
-    path: "/recommendations",
-    title: "Recommendations",
+    path: "/transports",
+    title: "Transport",
     rtlTitle: "قائمة الجدول",
     icon: "icon-puzzle-10",
     class: ""
@@ -80,6 +80,13 @@ export const ROUTES: RouteInfo[] = [
   {
     path: "/rtl",
     title: "RTL Support",
+    rtlTitle: "ار تي ال",
+    icon: "icon-world",
+    class: ""
+  },
+  {
+    path: "/place",
+    title: "Place",
     rtlTitle: "ار تي ال",
     icon: "icon-world",
     class: ""
