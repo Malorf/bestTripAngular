@@ -9,7 +9,7 @@ import { TransportsComponent } from "src/app/pages/transport/transport.component
 import { PlaceComponent } from "../../pages/place/place.component";
 import { HomeComponent } from "../../pages/home/home.component";
 import { LoginComponent } from "src/app/pages/login/login.component";
-// import { RtlComponent } from "../../pages/rtl/rtl.component";
+
 
 export const AdminLayoutRoutes: Routes = [
 
@@ -23,5 +23,5 @@ export const AdminLayoutRoutes: Routes = [
   { path: "typography", component: TypographyComponent },
   { path: "place", component: PlaceComponent },
   { path: "login", component: LoginComponent}
-  // { path: "rtl", component: RtlComponent }
+ 
 ];
