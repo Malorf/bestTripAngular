@@ -24,9 +24,12 @@ export class AccountService {
   public delete(id:number):Observable<any>{
     return this.httpClient.delete(this.BASE_URL+"/"+id);
   }
+  public update(id:number, account:Account):Observable<any>{
+    return this.httpClient.put(this.BASE_URL+"/"+id, account);
+  }
   // Etape 5 : (recherche)
-  public findByNameAccount(nom:string):Observable<any>{
-    return this.httpClient.get(this.BASE_URL+'/'+nom);
+  public findByNameAccount(username:string):Observable<any>{
+    return this.httpClient.get(this.BASE_URL+'/'+username);
   }
 
 }

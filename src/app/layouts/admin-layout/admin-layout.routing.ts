@@ -17,6 +17,7 @@ import { PlaceComponent } from "../../pages/place/place.component";
 import { HomeComponent } from "../../pages/home/home.component";
 import { LoginComponent } from "../../pages/login/login.component";
 import { AccountComponent } from "../../pages/account/account.component";
+import { AdminComponent } from "src/app/pages/admin/admin.component";
 
 
 
@@ -33,7 +34,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: "travelguide", component: TravelGuideComponent },
   { path: "review", component: ReviewComponent },
   { path: "newsletter", component: NewsletterComponent },
-
+  { path: "admin", component: AdminComponent },
   { path: "place", component: PlaceComponent },
   { path: "login", component: LoginComponent},
 

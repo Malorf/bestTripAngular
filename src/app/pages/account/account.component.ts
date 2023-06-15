@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppService } from 'src/app/app.service';
 import { Account } from 'src/app/models/account';
 import { AccountService } from 'src/app/services/account.service';
@@ -14,53 +15,27 @@ export class AccountComponent implements OnInit {
   // Déclaration d'un tableau d'utilisateurs
   // ! : le tableau n'est pas initialisé
   accounts!:any[]; // any : n'importe quel type de données
-  roles!:any[]; // step 3
   account:Account=new Account();
   // Etape 6 : (recherche)
   name!:string;
   // DI : par constructeur  
-  constructor(private accountService:AccountService,/*step4*/private roleService:RoleService,private appService:AppService){
+  constructor(private accountService:AccountService, private appService:AppService, private router: Router){
   }
   ngOnInit(): void {
-    //this.findAllUtilisateurs();
-    // step 6
-    this.findAllRoles();
-    // Etape 8 : (recherche)
-    this.name = '';
-    this.findByNameAccount();
+    
   }
-  /*findAllUtilisateurs(){
-    // data : les données qui se trouvent dans le cache du navigateur
-    this.utilisateurService.findAll().subscribe(data => {this.users = data});
-  }*/
-  // Etape 7 : (recherche)
-  findByNameAccount(){
-    this.accountService.findByNameAccount(this.name).subscribe(data =>{
-      this.accounts = data;
-    })
-  }
-  // Etape 9 : (recherche)
-  onSubmit(){
-    this.findByNameAccount();
-  }
-  // step 5
-  findAllRoles(){
-    this.roleService.findAll().subscribe(data => {this.roles = data});
+
+  redirectToLogin()
+  {
+    this.router.navigate(['/login']);
   }
   saveAccount(){
     this.accountService.save(this.account).subscribe(
       () => {
-        // MAJ la liste des utilisateurs
-        //this.findAllUtilisateurs();
-        this.findByNameAccount();
-        // Vider le formulaire
+
+        this.redirectToLogin();
+        alert("Account Created");
         this.account = new Account();
-      }
-    )
-  }
-  deleteAccount(id:number){
-    this.accountService.delete(id).subscribe(
-      () => {
       }
     )
   }
