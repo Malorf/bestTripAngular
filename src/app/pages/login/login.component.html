@@ -1,1 +1,50 @@
-Login
+<div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header mb-5">
+            <h3 class="card-title">Log In or Sign In</h3>
+          </div>
+          <div class="card-body">
+            <div class="typography-line">
+              <h1>Log In</h1>
+            </div>
+            <div class="typography-line">
+              <div>
+                <h1>Authentication</h1>
+                <form (submit)="login()">
+                  <table>
+                    <tr>
+                      <td>Username</td>
+                      <td><input type="text" [(ngModel)]="credentials.username" name="username" /></td>
+                    </tr>
+                    <tr>
+                      <td>Password</td>
+                      <td><input type="password" [(ngModel)]="credentials.password" name="password" /></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">
+                        <button>Login</button>
+                      </td>
+                    </tr>
+                  </table>
+                </form>
+              </div>
+            </div>
+            <br>
+            <br>
+            <div class="typography-line">
+              <h1>No account?</h1>
+            </div>
+            <div class="typography-line">
+              <button (click)="redirectToSignIn()" style="color: black">
+                Click here to create a new one!
+              </button>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+  
+  

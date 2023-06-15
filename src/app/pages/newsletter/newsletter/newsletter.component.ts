@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Newsletter } from 'src/app/models/newsletter';
+import { NewsletterService } from 'src/app/services/newsletter.service';
+import { TravelGuideService } from 'src/app/services/travelguide.service';
 
 @Component({
   selector: 'app-newsletter',
@@ -6,11 +10,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./newsletter.component.scss']
 })
 export class NewsletterComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+   
+  user!:any[]; 
+  travelguide!:any[]; 
+  news:Newsletter=new Newsletter();
+
+  
+  constructor(private newsletterService:NewsletterService,private router:Router,/*step4*/private travelguideService:TravelGuideService){
   }
-title : "newsletter";
-imagenewsletter:string = "home/in-so-012/Documents/Projet/wk_best_trip_db/img/imgnewsletter.jpeg";
+  ngOnInit(): void {
+    this.findAllNewsletter();
+    
+    this.findAllTravelGuide();
+  }
+  findAllNewsletter(){
+    
+    this.newsletterService.findAll().subscribe(data => {this.user = data});
+  }
+  
+  findAllTravelGuide(){
+    this.travelguideService.findAll().subscribe(data => {this.travelguide = data});
+  }
+  saveNewsletter(){
+    this.newsletterService.save(this.news).subscribe(
+      () => {
+        
+        this.news = new Newsletter();
+      }
+    )
+  }
+
 }
-
-
