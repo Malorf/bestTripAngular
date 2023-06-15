@@ -1,50 +1,126 @@
-<div class="panel-header panel-header-sm">
-</div>
-<div class="main-content">
+
+  <div class="content">
   <div class="row">
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-header">
-          <h5 class="title">Ajouter une expérience</h5>
-        </div>
-        <div class="card-body">
-          <form (ngSubmit)="save()"> 
-            <div class="row">
-              <div class="col-md-6 pr-1">
-                <div class="form-group">
-                  <label>Description</label>
-                  <textarea maxlength="250" [(ngModel)]="user.description" name="description"></textarea>
-                </div>
+    <div class="col-md-10">
+      <h1   style ="text-align: center; color: rgb(207, 38, 207);" class="title">Experience</h1>
+    </div>
+    <div class="col-md-12"> 
+
+      <div class=" card-body">
+
+        <form (ngSubmit)="save()"> 
+          <div class="row">
+            <div class="col-md-4 pr-1">
+              <div class="form-group">
+                <h4 class="sous titre"> Suggest an experience </h4>
+                <br>
+                <label>Description</label>
+                <br><textarea maxlength="1000" style="width: 400px; height: 100px;" [(ngModel)]="user.description" name="description"></textarea>
               </div>
-              <div class="row">
-                <div class="col-md-6 pr-1">
-                  <label>Ajouter des images</label>
-                  <input class="form-control" type="file" id="formFile" (change)="selectFile($event)">
-                  <input class="form-control" type="file" id="formFile" (change)="selectFile($event)">
-                  <input class="form-control" type="file" id="formFile" (change)="selectFile($event)">
-                </div>
-              </div>
-              
-              
-              <div class="row">
-                <div class="col-md-6 pr-1">
-                  <label>Ajouter des videos</label>
-                  <input class="form-control" type="video/mp4" id="formVideo" (change)="selectFile($event)">
-                  <input class="form-control" type="video/mp4" id="formVideo" (change)="selectFile($event)">
-                  <input class="form-control" type="video/mp4" id="formVideo" (change)="selectFile($event)">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 pl-1">
-                  <button class="btn btn-primary btn-round">Soumettre</button>
-                </div>
-              </div>
-              </div>
+            </div>
             
+            <!--<div class="row" style ="position:absolute; top: 240px;">-->
+              <div class="col-md-3 pr-1" style ="top: 50px; right: 50px;">
+                <label>Add pictures</label>
+                <input class="form-control" type="file" id="formFile" (change)="selectFile($event)" [(ngModel)]="user.imageExp" name="imageExp">
+                <input class="form-control" type="file" id="formFile" (change)="selectFile($event)" [(ngModel)]="user.imageExp" name="imageExp">
+                <input class="form-control" type="file" id="formFile" (change)="selectFile($event)"[(ngModel)]="user.imageExp" name="imageExp">
+              <!--</div>-->
+            </div>
+            </div>
             </form>
+          </div>
+          </div>
+          
+    <div class="col-md-12">        
+      <form (ngSubmit)="save()">
+             <!--<div class="row" style ="position:absolute; top: 240px; right: 1px;">-->
+                <div class="col-md-3 pr-1">
+                  <label>Add video</label>
+                  <input class="form-control" type="video/mp4" id="formVideo" (change)="selectFile($event)" [(ngModel)]="user.urlVideoExp" name="urlVideoExp">
+                  
+                <!--</div>-->
+              </div>
+             <!-- <div class="row" style ="position:absolute; top: 440px;">-->
+                <div class="col-md-2 pl-1" style ="position:absolute; top: 50px; left: 550px;">
+                  <button class="btn btn-primary btn-round" >Soumettre</button>
+               <!-- </div>-->
+              </div>
+              </form>
             </div>
         </div>
-      </div>
+</div>
+
+<div class="content">
+  <div class="row">
+    <div class="col-md-10" style="bottom:250px;" >
+      <h4 class="card-title"> Research Experiences</h4>
     </div>
-  </div>
+<div class="col-md-12" style="bottom:250px;">
+  <form (ngSubmit)="onSubmit()">
+      <table>
+          <tr>
+              <td>
+                  Date
+              </td>
+              <td>
+                  <input type="date" [(ngModel)]="user.updateExp" name="updateExp"/>
+              </td>
+          </tr>
+          
+              <td colspan="2">
+                  <br><button type="submit" style="border-radius: 30px;width: 140px; height: 30px; background:linear-gradient(rgb(207, 38, 207),purple); color: white;">Recherche</button>
+              </td>
+          <tr>
+
+          </tr>
+      </table>
+  </form>
+</div>
+</div>
+</div>
+
+  <div class="content">
+  <div class="row">
+    <div class="col-md-10" style="bottom:890px;" >
+                <h4 class="card-title"> Users Experiences</h4>
+              </div>
+            
+              <div class="col-md-10" style="bottom:890px;">
+                <div class="table-responsive">
+                  <table class="table" >
+                    <thead class=" text-primary">
+                      <th>
+                       Date
+                      </th>
+                      <th>
+                        Description
+                      </th>
+                      <th>
+                       Pictures
+                      </th>
+                      <th>
+                        Videos
+                      </th>
+                    </thead>
+                  
+                    <tbody>
+                      <tr *ngFor="let u of users">
+                        <td>{{u.updateExp}}</td>
+                        <td>{{u.description}}</td>
+                        <td>{{u.imageExp}}</td>
+                        <td>{{u.urlVideoExp}}</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              
+            
+          </div>
+        </div>
+       
+        
+      
+        
   

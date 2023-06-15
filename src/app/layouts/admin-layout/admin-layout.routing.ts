@@ -7,8 +7,8 @@ import { UserComponent } from "../../pages/user/user.component";
 
 import { ReviewComponent } from "../../pages/review/review.component";
 import { TravelGuideComponent } from "../../pages/travelguide/travelguide.component";
-
 import { NewsletterComponent } from "../../pages/newsletter/newsletter/newsletter.component";
+
 
 
 import { TypographyComponent } from "../../pages/typography/typography.component";
