@@ -38,11 +38,6 @@
     <div class="col-md-12">
       <div class="form-group">
           <h2>Choose a means of transport</h2>
-          <select multiple name="transport" [(ngModel)]="transport.transports" class="form-control">
-            <option *ngFor="let p of transports" [ngValue]="t">
-                {{t.nameCompany}}
-            </option>
-        </select>
       </div>
     </div>
 
@@ -93,30 +88,7 @@
             </div>
           </div>
       
-          <div class=" card-header">
-            <h3 class=" card-title">Reviews</h3>
-          </div>
-
-          <div class=" card-body">
-            <div class=" table-responsive">
-              <table class=" table tablesorter" id="">
-                <thead class=" text-primary">
-                  <tr>
-                    <th>Airline</th>
-                    <th >Description</th>
-                    <th class=" text-center">Note</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>exemple</td>
-                    <td>exemple</td>
-                    <td class=" text-center">exemple</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -184,31 +156,7 @@
           <div class=" card-header">
             <button class="btn btn-primary btn-round" type="button">Add a review</button>
           </div>
-          <div class=" card-header">
-            <h3 class=" card-title">Reviews</h3>
-          </div>
-          <div class=" card-body">
-            <div class=" table-responsive">
-              <table class=" table tablesorter" id="">
-                <thead class=" text-primary">
-                  <tr>
-                    <th>Shipping companies</th>
-                    <th >Description</th>
-                    <th class=" text-center">Note</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>exemple</td>
-                    <td>exemple</td>
-                    <td class=" text-center">exemple</td>
-                    
-
-                  </tr>
-                </tbody>
-               </table>
-             </div>
-            </div>
+          
           </div>
 
         
@@ -247,6 +195,96 @@
         </div>
     </div>
     </div>
+
+    <div class="col-md-12">
+      <div class="col-md-12">
+       
+          <div class="container text-center">
+              <div class="row justify-content-md-center">
+                  <div class="col-md-12">
+                      <h1 class="title">Add Reviews</h1>
+                      <h4 class="description"> Merci de remplir le formulaire ci-dessous. </h4>
+                  </div>
+              </div>
+          </div>
+      </div>
+   
+    <div class="col-md-12">
+      
+       
+        <div class="form-group">
+            <p>Selectionner une Catégories</p>
+            <select class="form-control"> 
+              <option>
+                  SelectTransportorPlace
+              </option>
+          </select>
+        </div>
+     
+    </div>
+    
+      <div class="col-md-12">
+        <div class="form-group">
+            <p>Selectionner une place</p>
+            <select class="form-control"> 
+              <option>
+              </option>
+          </select>
+        </div>
+      </div>
+    
+  
+      <div class="col-md-12">
+        <div class=" col-md-12">
+          <div class=" card">
+            <div class=" card-header">
+              <h3 class=" card-title">Rating</h3>
+              <input type="text" value="" placeholder="Ajouter un commentaire" class="form-control" style="border-radius: 7;" />
+            </div>
+          
+            <div class=" card-header">
+                <h3 class=" card-title">Description</h3>
+                <input type="text" value="" placeholder="Ajouter une note" class="form-control" style="border-radius: 7;" />
+            </div>
+  
+            <div>
+              <div class=" card-header">
+                <button class="btn btn-primary btn-round" type="button">Publier</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-12">
+      <div class=" col-md-12">
+        <div class=" card" style="background-color: currentColor;">
+          <div class=" card-header">
+            <h3 class=" card-title">Username</h3>
+            <input type="text" value="" placeholder="Ajouter un commentaire" class="form-control" style="border-radius: 7;" />
+          </div>
+
+          <div class=" card-header">
+              <h3 class=" card-title" >Rating</h3>
+
+              <input type="text" value="" placeholder="Ajouter une note" class="form-control" style="border-radius: 7;" />
+          </div>
+          <div class=" card-header">
+              <h3 class=" card-title">Description</h3>
+              <input type="text" value="" placeholder="Ajouter une note" class="form-control" style="border-radius: 7;" />
+          </div>
+
+          
+
+
+        </div>
+      </div>
+
+  </div>
+
+
+  </div>
 
   </div>
   </div>

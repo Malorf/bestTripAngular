@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Place } from 'src/app/models/place';
+import { Place, Restaurant } from 'src/app/models/place';
 import { PlaceService } from 'src/app/services/place.service';
 
 @Component({
@@ -12,6 +12,7 @@ export class PlaceComponent implements OnInit {
   places!:any[];
   place:Place=new Place();
   namePlace!: string;
+  restaurant:Restaurant=new Restaurant();
 ;
 constructor(private placeService:PlaceService){}
 

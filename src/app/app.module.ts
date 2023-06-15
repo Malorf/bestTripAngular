@@ -14,6 +14,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
 import { ExperienceService } from "./services/experience.service";
+import { RestaurantComponent } from './pages/restaurant/restaurant.component';
 
 
 
@@ -29,7 +30,7 @@ import { ExperienceService } from "./services/experience.service";
     AppRoutingModule,
     ToastrModule.forRoot()
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, RestaurantComponent],
   providers: [ExperienceService],
   bootstrap: [AppComponent]
 })

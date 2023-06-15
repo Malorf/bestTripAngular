@@ -6,10 +6,10 @@ transporRating!:number;
 timeTravel!:number;
 }
 
-class AirTransport extends Transport  {
+export class AirTransport extends Transport  {
     airPlaceClass!: number;
 }
 
-class MaritimeTransport extends Transport{
+export class MaritimeTransport extends Transport{
     boatClass!: number;
 }

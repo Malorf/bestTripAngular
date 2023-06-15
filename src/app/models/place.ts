@@ -8,14 +8,14 @@ export class Place {
    placeCost!:number;
 }
 
-class Restaurant extends Place {
+export class Restaurant extends Place {
    takeAway!:boolean;
 }
 
-class Hotel extends Place {
+export class Hotel extends Place {
    stars!:number;
 }
 
-class Activity extends Place {
+export class Activity extends Place {
    free!:boolean;
 }
