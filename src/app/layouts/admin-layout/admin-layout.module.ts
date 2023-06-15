@@ -14,12 +14,13 @@ import { TypographyComponent } from "../../pages/typography/typography.component
 import { TravelGuideComponent } from "../../pages/travelguide/travelguide.component";
 
 
-
 import { NewsletterComponent } from "../../pages/newsletter/newsletter/newsletter.component";
-
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+
 import { TransportsComponent } from "../../pages/transport/transport.component";
 import { PlaceComponent } from "../../pages/place/place.component";
+import { LoginComponent } from "../../pages/login/login.component";
+import { AccountComponent } from "../../pages/account/account.component";
 
 @NgModule({
   imports: [
@@ -32,13 +33,13 @@ import { PlaceComponent } from "../../pages/place/place.component";
   declarations: [
     ExperienceComponent,
     UserComponent,
-    
     ReviewComponent,
     TravelGuideComponent,
     TypographyComponent,
     MapComponent,
     NewsletterComponent,
-
+    LoginComponent,
+    AccountComponent,
     TransportsComponent,
     IconsComponent,
     TypographyComponent,

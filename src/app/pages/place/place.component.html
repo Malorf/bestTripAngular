@@ -1,6 +1,8 @@
 
 <div class="content">
     <div class=" row">
+
+
         <div class="col-md-12">
             <div class="section">
               <div class="container text-center">
@@ -48,20 +50,15 @@
   
     <div class="col-md-12">
       <div class="col-md-12">
-        <div class="form-group">
+        <div class="form-group" (ngSubmit)="onSubmit()">
             <h2>Search a place</h2>
-            
-            <select class="form-control">
-                <option>
-                    SelectPlaceType
-                </option>
-            </select>
         </div>
       </div>
   
       <div class="col-md-12">
         <div class="form-group">
-            <input type="text" value="" placeholder="Reserch Name of the place" class="form-control" />
+            <input type="text" value="" placeholder="Reserch an hotel, a restaurant, an acitivy ..." class="form-control" 
+            [(ngModel)]="namePlace" name="namePlace"/>
         </div>
       </div>
     </div>
@@ -75,66 +72,32 @@
   
             <div class=" card-body">
               <div class=" table-responsive">
+                <form  (ngSubmit)="savePlace()">
                 <table class=" table tablesorter" id="">
                   <thead class=" text-primary">
                     <tr>
-                      <th>Name Hotel</th>
+                      <th [(ngModel)]="place.placeName" name="placeName">Name Hotel</th>
                       <th>Stars</th>
-                      <th>Hotel Name</th>
                       <th>Address</th>
                       <th>Cost</th>
                       <th class=" text-center">Rating</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>exemple</td>
-                      <td>exmple</td>
-                      <td>exemple</td>
-                      <td>exemple</td>
-                      <td>exemple</td>
-                      <td class=" text-center">exemple</td>
-                    </tr>
-                    <tr>
-                      <td>exemple</td>
-                      <td>exmple</td>
-                      <td>exemple</td>
-                      <td>exemple</td>
-                      <td>exemple</td>
-                      <td class=" text-center">exemple</td>
+                    <tr *ngFor="let p of places">
+                      <td>{{p.placeName}}</td>
+                      <td>{{p.stars}}</td>
+                      <td>{{p.adress}}</td>
+                      <td>{{p.placeCost}}</td>
+                      <td class=" text-center">{{p.placeRating}}</td>
                     </tr>
                   </tbody>
                 </table>
+                </form>
               </div>
-  
               <div class=" card-header">
                 <button class="btn btn-primary btn-round" type="button">Add a review</button>
-              </div>
-            </div>
-        
-            <div class=" card-header">
-              <h3 class=" card-title">Reviews</h3>
-            </div>
-  
-            <div class=" card-body">
-              <div class=" table-responsive">
-                <table class=" table tablesorter" id="">
-                  <thead class=" text-primary">
-                    <tr>
-                      <th>Hotel</th>
-                      <th >Description</th>
-                      <th class=" text-center">Note</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>exemple</td>
-                      <td>exemple</td>
-                      <td class=" text-center">exemple</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                </div>
             </div>
           </div>
         </div>
@@ -174,74 +137,41 @@
   
       <div class=" col-md-6">
         <div class=" col-md-12">
-        <div class=" card">
-          <div class=" card-header">
-            <h3 class=" card-title">Restaurants</h3>
-          </div>
+          <div class=" card">
+            <div class=" card-header">
+              <h3 class=" card-title">Restaurants</h3>
+            </div>
   
-          <div class=" card-body">
-            <div class=" table-responsive">
-              <table class=" table tablesorter" id="">
-                <thead class=" text-primary">
-                  <tr>
-                    <th>Name Restaurant</th>
-                    <th>Take away</th>
-                    <th>Restaurant Name</th>
-                    <th>Address</th>
-                    <th>Cost</th>
-                    <th class=" text-center">Rating</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>exemple</td>
-                    <td>exmple</td>
-                    <td>exemple</td>
-                    <td>exemple</td>
-                    <td>exemple</td>
-                    <td class=" text-center">exemple</td>
-                  </tr>
-                  <tr>
-                    <td>exemple</td>
-                    <td>exmple</td>
-                    <td>exemple</td>
-                    <td class=" text-center">exemple</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class=" card-header">
-              <button class="btn btn-primary btn-round" type="button">Add a review</button>
-            </div>
-            <div class=" card-header">
-              <h3 class=" card-title">Reviews</h3>
-            </div>
             <div class=" card-body">
               <div class=" table-responsive">
+                <form  (ngSubmit)="savePlace()">
                 <table class=" table tablesorter" id="">
                   <thead class=" text-primary">
                     <tr>
-                      <th>Restaurant</th>
-                      <th >Description</th>
-                      <th class=" text-center">Note</th>
+                      <th [(ngModel)]="restaurant.placeName" name="placeName">Name Restaurant</th>
+                      <th>Take away</th>
+                      <th>Address</th>
+                      <th>Cost</th>
+                      <th class=" text-center">Rating</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>exemple</td>
-                      <td>exemple</td>
-                      <td class=" text-center">exemple</td>
-                      
-  
+                    <tr *ngFor="let p of places">
+                      <td>{{p.placeName}}</td>
+                      <td>{{p.takeAway}}</td>
+                      <td>{{p.adress}}</td>
+                      <td>{{p.placeCost}}</td>
+                      <td class=" text-center">{{p.placeRating}}</td>
                     </tr>
                   </tbody>
-                 </table>
-               </div>
+                </table>
+              </form>
+              </div>
+
+              <div class=" card-header">
+                <button class="btn btn-primary btn-round" type="button">Add a review</button>
               </div>
             </div>
-  
-          
-            
           </div>
         </div>
       </div>
@@ -279,78 +209,43 @@
     
       <div class=" col-md-6">
         <div class=" col-md-12">
-        <div class=" card">
-          <div class=" card-header">
-            <h3 class=" card-title">Activities</h3>
-          </div>
+          <div class=" card">
+            <div class=" card-header">
+              <h3 class=" card-title">Activities</h3>
+            </div>
   
-          <div class=" card-body">
-            <div class=" table-responsive">
-              <table class=" table tablesorter" id="">
-                <thead class=" text-primary">
-                  <tr>
-                    <th>Name Activity</th>
-                    <th>Free</th>
-                    <th>Activity Name</th>
-                    <th>Address</th>
-                    <th>Cost</th>
-                    <th class=" text-center">Rating</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>exemple</td>
-                    <td>exmple</td>
-                    <td>exemple</td>
-                    <td>exemple</td>
-                    <td>exemple</td>
-                    <td class=" text-center">exemple</td>
-                  </tr>
-                  <tr>
-                    <td>exemple</td>
-                    <td>exmple</td>
-                    <td>exemple</td>
-                    <td class=" text-center">exemple</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class=" card-header">
-              <button class="btn btn-primary btn-round" type="button">Add a review</button>
-            </div>
-            <div class=" card-header">
-              <h3 class=" card-title">Reviews</h3>
-            </div>
             <div class=" card-body">
               <div class=" table-responsive">
                 <table class=" table tablesorter" id="">
                   <thead class=" text-primary">
                     <tr>
-                      <th>Activitiy</th>
-                      <th >Description</th>
-                      <th class=" text-center">Note</th>
+                      <th>Name Activity</th>
+                      <th>Free</th>
+                      <th>Activity Name</th>
+                      <th>Address</th>
+                      <th>Cost</th>
+                      <th class=" text-center">Rating</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>exemple</td>
-                      <td>exemple</td>
-                      <td class=" text-center">exemple</td>
-                      
-  
+                    <tr *ngFor="let p of places">
+                      <td>{{p.placeName}}</td>
+                      <td>{{p.stars}}</td>
+                      <td>{{p.adress}}</td>
+                      <td>{{p.placeCost}}</td>
+                      <td class=" text-center">{{p.placeRating}}</td>
                     </tr>
                   </tbody>
-                 </table>
-               </div>
+                </table>
+              </div>
+              <div class=" card-header">
+              <button class="btn btn-primary btn-round" type="button">Add a review</button>
               </div>
             </div>
-  
-          
-            
           </div>
         </div>
       </div>
-  
+     
       <div class="col-md-6">
         <div class="section" id="carousel">
           <div class="main-container">
@@ -381,5 +276,105 @@
           </div>
       </div>
       </div>
+      
+     
+      <div class="col-md-10" style=" left: 150px; top: 100px; ">
+        <div class="col-md-12">
+            <div class="container text-center">
+              <div class="row justify-content-md-center">
+                  <div class="col-md-12">
+                      <h1 class="title">Add Reviews</h1>
+                      <h4 class="description"> Merci de remplir le formulaire ci-dessous. </h4>
+                  </div>
+              </div>
+          </div>
+        </div>
+   
+        <div class="col-md-12">
+          <div class="form-group">
+            <p>Selectionner une Catégories</p>
+              <select class="form-control"> 
+                <option>
+                  SelectTransportorPlace
+                </option>
+            </select>
+          </div>
+        </div>
+    
+          <div class="col-md-12">
+            <div class="form-group">
+                <p>Selectionner une place</p>
+                <select class="form-control"> 
+                  <option>
+                  </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            
+              <div class=" card">
+                <div class=" card-header">
+                  <h3 class=" card-title">Rating</h3>
+                  <input type="text" value="" placeholder="Ajouter un commentaire" class="form-control" style="border-radius: 7;" />
+                </div>
+              
+                <div class=" card-header">
+                    <h3 class=" card-title">Description</h3>
+                    <input type="text" value="" placeholder="Ajouter une note" class="form-control" style="border-radius: 7;" />
+                </div>
+                <br><br><br>
+                
+                <div class=" card-header">
+                  <h3 class=" card-title">Connecter vous avec :</h3>
+                    <div>
+                      <p>Name :</p>
+                        <input type="text" value="" placeholder="Ajouter une note" class="form-control" style="border-radius: 7;" />
+                      <br>
+                        <p>E-Mail :</p>
+                        <input type="text" value="" placeholder="Ajouter une note" class="form-control" style="border-radius: 7;" /> 
+                    </div>
+                </div>
+
+              
+                
+                <div class=" card-header">
+                    <button class="btn btn-primary btn-round" type="button" style="left: 550px;">Publier</button>
+                </div>
+              </div>
+          </div>
+        
+        <div class="col-md-12">
+          <div class="container text-center">
+            <div class="row justify-content-md-center">
+                <div class="col-md-12">
+                    <h2 class="title">Les avis</h2>
+                </div>
+            </div>
+          </div>
+        </div>
+
+          <div class="col-md-12">
+            <div class=" col-md-12">
+              <div class=" card">
+                <div class=" card-header">
+                  <h3 class=" card-title">Username</h3>
+                  <input type="text" value="" placeholder="Ajouter un commentaire" class="form-control" style="border-radius: 7;" />
+                </div>
+
+                <div class=" card-header">
+                    <h3 class=" card-title" >Rating</h3>
+
+                    <input type="text" value="" placeholder="Ajouter une note" class="form-control" style="border-radius: 7;" />
+                </div>
+                <div class=" card-header">
+                    <h3 class=" card-title">Description</h3>
+                    <input type="text" value="" placeholder="Ajouter une note" class="form-control" style="border-radius: 7;" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     
     </div>
-  </div>
