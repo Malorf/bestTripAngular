@@ -12,8 +12,10 @@ import { ReviewComponent } from "../../pages/review/review.component";
 import { UserComponent } from "../../pages/user/user.component";
 import { TypographyComponent } from "../../pages/typography/typography.component";
 import { TravelGuideComponent } from "../../pages/travelguide/travelguide.component";
+
 import { NewsletterComponent } from "../../pages/newsletter/newsletter/newsletter.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+
 import { TransportsComponent } from "../../pages/transport/transport.component";
 import { PlaceComponent } from "../../pages/place/place.component";
 import { LoginComponent } from "../../pages/login/login.component";
