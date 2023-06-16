@@ -1,21 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Place } from '../models/place';
+import { Hotel } from '../models/place';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PlaceService {
+export class HotelService {
 
-  private BASE_URL = "http://localhost:8080/places";
+  private BASE_URL = "http://localhost:8080/hotels";
 
   constructor(private httpClient:HttpClient) { }
   public findAll():Observable<any>{
     return this.httpClient.get(this.BASE_URL); 
 }
-public save(place:Place):Observable<any>{
-    return this.httpClient.post(this.BASE_URL,place);
+public save(hotel:Hotel):Observable<any>{
+    return this.httpClient.post(this.BASE_URL,hotel);
   }
   public delete(id:number):Observable<any>{
     return this.httpClient.delete(this.BASE_URL+"/"+id);
@@ -23,11 +23,11 @@ public save(place:Place):Observable<any>{
   public findOne(id:number):Observable<any>{
     return this.httpClient.get(this.BASE_URL+'/'+id);
   }
-  public update(place:any):Observable<any>{
-    var placeJSON = JSON.parse(place);
-    return this.httpClient.put(this.BASE_URL+'/'+placeJSON.idPlace,placeJSON);
+  public update(hotel:any):Observable<any>{
+    var hotelJSON = JSON.parse(hotel);
+    return this.httpClient.put(this.BASE_URL+'/'+hotelJSON.idHotel,hotelJSON);
   }
-  public findByPlaceName(namePlace:string):Observable<any>{
-    return this.httpClient.get(this.BASE_URL+'/'+namePlace);
+  public findByHotelName(nameHotel:string):Observable<any>{
+    return this.httpClient.get(this.BASE_URL+'/'+nameHotel);
   }
 }
