@@ -19,9 +19,9 @@ export class ExperienceService {
   public save(image:File,experience:Experience):Observable<any>{
     // Utilisation du RequestParam de la Partie Back
     const formData=new FormData();
-    formData.append('Description',experience.description);
-   /* formData.append('urlVideoExp',experience.urlVideoExp);*/
-    formData.append('imageFront',image);
+    formData.append('description',experience.description);
+    formData.append('urlVideoExp',experience.urlVideoExp);
+    formData.append('imageExp',experience.imageExp);
     const requestHttp=new HttpRequest('POST',this.BASE_URL,formData,{
      reportProgress:true, responseType:'text'
     });

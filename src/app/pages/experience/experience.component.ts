@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import Chart from 'chart.js';
+import { AppService } from "src/app/app.service";
 import { Experience } from "src/app/models/experience";
 import { ExperienceService } from "src/app/services/experience.service";
 
@@ -9,33 +10,33 @@ import { ExperienceService } from "src/app/services/experience.service";
   templateUrl: "experience.component.html"
 })
 export class ExperienceComponent implements OnInit {
-accountss!: any [];
+experiences!: any [];
 users!:any[];
 accounts!:any[]
-user:Experience=new Experience();
+experience:Experience=new Experience;
 
 date!:Date;
 
 selectedFiles:FileList;
 currentFileUpload:File;
 
-constructor(private experienceService:ExperienceService,/*private accountService:AccountService,*/private router:Router){
+constructor(private experienceService:ExperienceService,/*private accountService:AccountService,*/private router:Router,private appService:AppService){
 }
 ngOnInit(): void {
   this.findAllExperiences();
 
  /* this.findAllAccounts();*/
- this.date,'yyyy-MM-dd';
+ this.date;
  this.findByUpdateExp();
 }
 findAllExperiences(){
   
-  this.experienceService.findAll().subscribe(data => {this.accountss = data});
+  this.experienceService.findAll().subscribe(data => {this.accounts = data});
 }
 
 findByUpdateExp(){
   this.experienceService.findByUpdateExp(this.date).subscribe(data=>{
-    this.users =data;
+    this.experiences =data;
   })
 }
 
@@ -59,11 +60,11 @@ onSubmit(){
 selectFile(event:any){
   this.selectedFiles=event.target.files;
 }
-save(){
+saveExperience(){
   this.currentFileUpload=this.selectedFiles.item(0);
-  this.experienceService.save(this.currentFileUpload,this.user).subscribe(()=>{
+  this.experienceService.save(this.currentFileUpload,this.experience).subscribe(()=>{
     this.findAllExperiences();
-    this.user= new Experience();
+    this.experience= new Experience();
     this.selectedFiles = undefined;
 });
 }
@@ -76,8 +77,22 @@ deleteExperience(id:number){
   )
 }
 editExperience(experience:Experience){
-  localStorage.removeItem("editUserId");
-  localStorage.setItem("editUserId",experience.idExperience.toString());
-  this.router.navigate(['/editUser',experience.idExperience]);
+  localStorage.removeItem("editExperienceId");
+  localStorage.setItem("editExperienceId",experience.idExperience.toString());
+  this.router.navigate(['/editExperience',experience.idExperience]);
 }
+
+authenticated(){
+  return this.appService.authenticated; // authenticated = false
+}
+// Etape 7 : (security)
+authorities(){
+  if(this.appService.isAdmin == true){
+    return false; // [hidden] = false isAdmin = true
+  }else{
+    return true; // [hidden] = true isAdmin = false
+  }
+}
+
+
 }
