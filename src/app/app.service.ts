@@ -38,10 +38,10 @@ export class AppService {
         // vérification des profils :
         for(let i=0;i<this.responseAll['roles'].length;i++){
           if(this.responseAll['roles'][i]['idRole']==1){
-            this.isAdmin = true;
+            this.isAccount = true;
           }
           if(this.responseAll['roles'][i]['idRole']==2){
-            this.isAccount = true;
+            this.isAdmin = true;
           }
         }
       }else{

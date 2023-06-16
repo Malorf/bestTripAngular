@@ -16,16 +16,21 @@ import { TravelGuideService } from "src/app/services/travelguide.service";
 })
 export class TravelGuideComponent implements OnInit{
   users!:any[]; 
+  countries:any[];
   
   countryName!:string;
   totalCost!:number;
   globalRating!:number;
-  constructor(private travelGuideService:TravelGuideService){
-  }
+  title = 'best_trip_db';
+  data = [];
+
+  constructor( private http: HttpClient, private travelGuideService:TravelGuideService){
+    }
+ 
+  
   
   
   ngOnInit(): void {
-
 
     this.countryName = '';
     this.findByCountryName();
