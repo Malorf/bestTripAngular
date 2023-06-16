@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Place, Restaurant } from 'src/app/models/place';
+import { Activity, Hotel, Place, Restaurant } from 'src/app/models/place';
+import { ActivityService } from 'src/app/services/activity.service';
+import { HotelService } from 'src/app/services/hotel.service';
 import { PlaceService } from 'src/app/services/place.service';
+import { RestaurantService } from 'src/app/services/restaurant.service';
 
 @Component({
   selector: 'app-place',
@@ -10,17 +13,35 @@ import { PlaceService } from 'src/app/services/place.service';
 export class PlaceComponent implements OnInit {
 
   places!:any[];
+  hotels!:any[];
+  activities!:any[];
+  restaurants!:any[];
   place:Place=new Place();
+  restaurant:Restaurant = new Restaurant();
+  hotel:Hotel = new Hotel();
+  activity:Activity = new Activity();
+
   namePlace!: string;
-  restaurant:Restaurant=new Restaurant();
-;
-constructor(private placeService:PlaceService){}
+  
+  nameHotel: string;
+  nameRestaurant: string;
+  nameActivity: string;
+
+constructor(private placeService:PlaceService,
+            private restaurantService:RestaurantService,
+            private hotelService:HotelService,
+            private activityService:ActivityService){}
 
   ngOnInit():void {
     //this.findAllPlace();
     this.namePlace ='';
-    this.findByNamePlace();
-
+    this.nameHotel ='';
+    this.nameRestaurant ='';
+    this.nameActivity ='';
+    this.findByPlaceName();
+    this.findByHotelName();
+    this.findByRestaurantName();
+    this.findByActivityName();
   }
 
   /*findAllPlace(){
@@ -28,13 +49,34 @@ constructor(private placeService:PlaceService){}
   }*/
 
 
-  findByNamePlace(){
-    this.placeService.findByNamePlace(this.namePlace).subscribe(data =>{
+  findByPlaceName(){
+    this.placeService.findByPlaceName(this.namePlace).subscribe(data =>{
       this.places = data;
     })
   }
+
+  findByHotelName(){
+    this.placeService.findByPlaceName(this.nameHotel).subscribe(data =>{
+      this.places = data;
+    })
+  }
+  findByActivityName(){
+    this.placeService.findByPlaceName(this.nameActivity).subscribe(data =>{
+      this.places = data;
+    })
+  }
+  findByRestaurantName(){
+    this.placeService.findByPlaceName(this.nameRestaurant).subscribe(data =>{
+      this.places = data;
+    })
+  }
+
+
   onSubmit(){
-    this.findByNamePlace();
+    this.findByPlaceName();
+    this.findByActivityName();
+    this.findByHotelName();
+    this.findByRestaurantName();
   }
 
   savePlace(){
@@ -42,17 +84,20 @@ constructor(private placeService:PlaceService){}
       () => {
         // MAJ la liste des places
         //this.findAllPlace();
-        this.findByNamePlace;
+        this.findByPlaceName;
         // Vider le formulaire
         this.place = new Place();
       }
     )
   }
-  
-  deletePlace(id:number){
-    this.placeService.delete(id).subscribe(
+  saveHotel(){
+    this.hotelService.save(this.hotel).subscribe(
       () => {
+        // MAJ la liste des places
         //this.findAllPlace();
+        this.findByPlaceName;
+        // Vider le formulaire
+        this.place = new Place();
       }
     )
   }
