@@ -21,6 +21,7 @@ import { TransportsComponent } from "../../pages/transport/transport.component";
 import { PlaceComponent } from "../../pages/place/place.component";
 import { LoginComponent } from "../../pages/login/login.component";
 import { AccountComponent } from "../../pages/account/account.component";
+import { AdminComponent } from "../../pages/admin/admin.component";
 
 @NgModule({
   imports: [
@@ -45,6 +46,7 @@ import { AccountComponent } from "../../pages/account/account.component";
     TypographyComponent,
     MapComponent,
     PlaceComponent,
+    AdminComponent
     
   ]
 })

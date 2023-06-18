@@ -1,0 +1,57 @@
+<div class="content">   
+    <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header mb-5">
+          <h1 class=" card-title">Profile</h1>
+        </div>
+        <div class=" card-body">
+              </div>
+              <div class=" typography-line">
+                    <div>
+                        <h1>Edit Profile</h1>
+                        <h1>Welcome {{account.username}}</h1>
+                        <p>This is your profile page. You can edit your informations.
+                        </p>
+                            <div>
+                                <div>
+                                </div>
+                                <div>
+                                    <table [hidden]="authenticated()">
+                                        <tr>
+                                        <td>Profile Name</td>
+                                        <td>New Password</td>
+                                        <td>Confirm New Password</td>
+                                        <td>Subscription to Newsletter</td>
+                                        <td>Profile Picture</td>
+                                        <td>Amount of Guide Contributions</td>
+                                        <td>Amount of Experiences shared</td>
+                                    </tr>
+                                    <tr>
+                                    <form>
+                                    <tr>
+                                        <td>{{account.profileName}}</td>
+                                        <td>{{account.password}}</td>
+                                        <td>check password</td>
+                                        <td>{{account.sub}}</td>
+                                    </tr>
+                                    </form>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" card-body">
+                    </div>
+                    <div class=" typography-line">
+                          <div>
+                              <h1>Best trip newsletter</h1>
+                                  <div>
+
+                                  </div>
+                              </div>
+                          </div>
+                </div>
+            </div>
+        </div>
+</div>

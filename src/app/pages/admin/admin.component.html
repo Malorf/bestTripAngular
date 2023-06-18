@@ -1,0 +1,70 @@
+<div class="content">   
+    <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header mb-5">
+          <h1 class=" card-title">Admin</h1>
+        </div>
+        <div class=" card-body">
+              </div>
+              <div class=" typography-line">
+                    <div>
+                        <h1>Best trip manager</h1>
+                            <div>
+                                <div>
+                                </div>
+                                <div>
+                                    <table [hidden]="authorities()">
+                                        <tr>
+                                            <td>Profile Name</td>
+                                            <td>Username</td>
+                                            <td>E-Mail</td>
+                                            <td>Sub</td>
+                                            <td>Roles</td>
+                                            <td>Action</td>
+                                            <td>Admin</td>
+                                            <td>User</td>
+                                            <td>Ban</td>
+                                        </tr>
+                                        <tr *ngFor="let a of accounts">
+                                            <td>{{a.profileName}}</td>
+                                            <td>{{a.username}}</td>
+                                            <td>{{a.eMail}}</td>
+                                            <td>{{a.sub}}</td>
+                                            <td> <span *ngFor="let role of a.roles">{{ role.nameRole }} , </span> </td>
+                                            <td><button (click)="deleteAccount(a.idAccount)">Delete</button></td>
+                                            <td><button (click)="promoteAdmin(a.idAccount, a)">Update</button></td>
+                                            <td><button (click)="demoteAdmin(a.idAccount, a)">Update</button></td>
+                                            <td><button (click)="banUser(a.idAccount, a)">Ban</button></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" card-body">
+                    </div>
+                    <div class=" typography-line">
+                          <div>
+                              <h1>Best trip newsletter</h1>
+                                  <div>
+                                      <div>
+                                      </div>
+                                      <div>
+                                          <table [hidden]="authorities()">
+                                              <tr>
+                                                  <td>Subscriber's List</td>
+                                                  <td><button (click)="sendEmail()">Send Newsletter</button></td>
+                                              </tr>
+                                              <tr>
+                                                  <td>{{ getEmails() }}</td>
+                                              </tr>
+                                          </table>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                </div>
+            </div>
+        </div>
+</div>

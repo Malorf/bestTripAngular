@@ -15,8 +15,16 @@ export class LoginComponent {
  }
 
  login(){
-  this.appService.authenticate(this.credentials,()=>{this.router.navigate(["/home"])});
- }
+  this.appService.authenticate(this.credentials,()=>{
+    if (this.appService.authenticated)
+    {
+    this.router.navigate(["/home"]);
+    }
+    else {
+      alert("wrong username or wrong password");
+    }
+    });
+  }
  redirectToSignIn()
  {
    this.router.navigate(['/account']);
