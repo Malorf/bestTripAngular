@@ -30,6 +30,7 @@ export class AccountComponent implements OnInit {
     this.router.navigate(['/login']);
   }
   saveAccount(){
+    this.account.roles= [{ idRole:1, nameRole:'user'}];
     this.accountService.save(this.account).subscribe(
       () => {
 

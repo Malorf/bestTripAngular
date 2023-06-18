@@ -31,5 +31,11 @@ export class AccountService {
   public findByNameAccount(username:string):Observable<any>{
     return this.httpClient.get(this.BASE_URL+'/'+username);
   }
+  public findOne(id:number):Observable<any>
+  {
+    return this.httpClient.get(this.BASE_URL+'/'+id);
+  }
+
+
 
 }

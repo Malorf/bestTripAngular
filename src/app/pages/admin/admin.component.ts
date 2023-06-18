@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AccountService } from 'src/app/services/account.service';
 import { RoleService } from 'src/app/services/role.service';
 import { Account } from 'src/app/models/account';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-admin',
@@ -16,35 +17,23 @@ export class AdminComponent {
     accounts!:any[]; // any : n'importe quel type de données
     roles!:any[]; // step 3
     account:Account=new Account();
-    // Etape 6 : (recherche)
-    name!:string;
 
-    constructor(private accountService:AccountService,/*step4*/private roleService:RoleService,private appService:AppService){
+    constructor(private accountService:AccountService,private roleService:RoleService,private appService:AppService, private router:Router, private http:HttpClient){
     }
 
     ngOnInit(): void {
         this.findAllAccounts();
-        // step 6
+
         this.findAllRoles();
-        // Etape 8 : (recherche)
-        this.name = '';
-        //this.findByNameAccount();
+        console.log(this.accounts);
       }
       findAllAccounts(){
         // data : les données qui se trouvent dans le cache du navigateur
-        this.accountService.findAll().subscribe(data => {this.accounts = data});
-      }
-      // Etape 7 : (recherche)
-      /*findByNameAccount(){
-        this.accountService.findByNameAccount(this.name).subscribe(data =>{
+        this.accountService.findAll().subscribe(data => {
           this.accounts = data;
-        })
+        });
       }
-      // Etape 9 : (recherche)
-      onSubmit(){
-        this.findByNameAccount();
-      }*/
-      // step 5
+
       findAllRoles(){
         this.roleService.findAll().subscribe(data => {this.roles = data});
       }
@@ -58,19 +47,82 @@ export class AdminComponent {
           }
         )
       }
-      updateAccount(id:number, account:Account){
-        this.accountService.update(id, account).subscribe(
-          () => {
+      authorities(){
+        if(this.appService.isAdmin == true){
+          return false; 
+        }else{
+          return true; 
+        }
+      }
+      promoteAdmin(id:number, account:Account)
+      {
+        const updatedAccount ={...account};
+        updatedAccount.roles=[{idRole:2, nameRole:'admin'}, {idRole:1, nameRole:'user'}];
+        this.accountService.update(id, updatedAccount).subscribe(
+          ()=>{
             this.findAllAccounts();
-            alert("Account Updated");
+            alert("Account updated");
           }
         )
       }
-      authorities(){
-        if(this.appService.isAdmin == true){
-          return false; // [hidden] = false isAdmin = true
-        }else{
-          return true; // [hidden] = true isAdmin = false
-        }
+      demoteAdmin(id:number, account:Account)
+      {
+        const updatedAccount ={...account};
+        updatedAccount.roles=[{idRole:1, nameRole:'user'}];
+        this.accountService.update(id, updatedAccount).subscribe(
+          ()=>{
+            this.findAllAccounts();
+            alert("Account updated");
+          }
+        )
       }
+      banUser(id:number, account:Account)
+      {
+        const updatedAccount ={...account};
+        updatedAccount.roles=[];
+        this.accountService.update(id, updatedAccount).subscribe(
+          ()=>{
+            this.findAllAccounts();
+            alert("Account updated");
+          }
+        )
+      }
+
+      getEmails(): string {
+        let emails = '';
+        if (this.accounts && this.accounts.length >0)
+        {
+          for (let i = 0; i < this.accounts.length; i++)
+          { const account = this.accounts[i];
+            if (account.sub)
+            { emails += account.eMail + ', '; }
+          }
+        }
+        emails = emails.slice(0, -2); // Supprime la virgule et l'espace en trop à la fin
+        return emails;
+      }
+      
+      
+      sendEmail(): void {
+        const emails = this.getEmails();
+        const mailToLink ="mailto:"+ emails;
+        window.location.href = mailToLink;
+        console.log(mailToLink);
+      }
+      
+      /*updateAccount(account: Account) {
+
+        this.accountService.updateAccountRoles(account.idAccount, selectedRoleIds).subscribe(
+            () => {
+                // Mise à jour des rôles du compte réussie
+                alert("Roles updated successfully");
+            },
+            error => {
+                // Gestion de l'erreur lors de la mise à jour des rôles du compte
+                console.error("Error updating account roles: ", error);
+            }
+        );
+    }*/
+    
+    
 }

@@ -48,6 +48,18 @@ export class AppService {
         this.authenticated = false;
       }
       return callback && callback();
-    })
+    },
+      (error) => {
+        if (error.status ===401)
+        {
+          this.authenticated=false;
+          return callback && callback();
+          
+        }
+        else {
+          console.error('error during authentication', error);
+        }
+      }
+    );
   }
 }

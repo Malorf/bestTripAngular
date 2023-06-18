@@ -82,8 +82,8 @@
                 Login
               </a>
             </li>
-            <li class=" nav-link">
-              <a class=" nav-item" href="javascript:void(0)" ngbDropdownItem>
+            <li class=" nav-link" [hidden]="authenticated()">
+              <a class=" nav-item" (click)="redirectToProfile()" style="color: black"ngbDropdownItem>
                 Profile
               </a>
             </li>

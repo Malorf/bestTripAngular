@@ -12,34 +12,6 @@
                         <h1>Best trip manager</h1>
                             <div>
                                 <div>
-                                   <!-- <form (ngSubmit)="onSubmit()">
-                                        <table>
-                                            <tr>
-                                                <td>
-                                                    Nom
-                                                </td>
-                                                <td>
-                                                    <input type="text" [(ngModel)]="account.username" name="username"/>
-                                                </td>
-                                            </tr>
-                                                <td colspan="2">
-                                                    <button type="submit">Recherche</button>
-                                                </td>
-                                            <tr>
-                                
-                                            </tr>
-                                            <tr>
-                                                <td>Roles</td>
-                                                <td>
-                                                    <select  name="roles" [(ngModel)]="account.roles" multiple>
-                                                        <option *ngFor="let r of roles" [ngValue]="r">
-                                                            {{r.nameRole}}
-                                                        </option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </form> -->
                                 </div>
                                 <div>
                                     <table [hidden]="authorities()">
@@ -47,25 +19,51 @@
                                             <td>Profile Name</td>
                                             <td>Username</td>
                                             <td>E-Mail</td>
+                                            <td>Sub</td>
                                             <td>Roles</td>
                                             <td>Action</td>
-                                            <td>Add Role</td>
-                                            <td>Action</td>
+                                            <td>Admin</td>
+                                            <td>User</td>
+                                            <td>Ban</td>
                                         </tr>
                                         <tr *ngFor="let a of accounts">
                                             <td>{{a.profileName}}</td>
                                             <td>{{a.username}}</td>
                                             <td>{{a.eMail}}</td>
+                                            <td>{{a.sub}}</td>
                                             <td> <span *ngFor="let role of a.roles">{{ role.nameRole }} , </span> </td>
                                             <td><button (click)="deleteAccount(a.idAccount)">Delete</button></td>
-                                            <td> <select [(ngModel)]="a.selectedRoleId"> <option *ngFor="let role of roles" >{{ role.nameRole }}</option> </select> </td>
-                                            <td><button (click)="updateAccount(a.idAccount)">Update</button></td>
+                                            <td><button (click)="promoteAdmin(a.idAccount, a)">Update</button></td>
+                                            <td><button (click)="demoteAdmin(a.idAccount, a)">Update</button></td>
+                                            <td><button (click)="banUser(a.idAccount, a)">Ban</button></td>
                                         </tr>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class=" card-body">
+                    </div>
+                    <div class=" typography-line">
+                          <div>
+                              <h1>Best trip newsletter</h1>
+                                  <div>
+                                      <div>
+                                      </div>
+                                      <div>
+                                          <table [hidden]="authorities()">
+                                              <tr>
+                                                  <td>Subscriber's List</td>
+                                                  <td><button (click)="sendEmail()">Send Newsletter</button></td>
+                                              </tr>
+                                              <tr>
+                                                  <td>{{ getEmails() }}</td>
+                                              </tr>
+                                          </table>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
                 </div>
             </div>
         </div>
