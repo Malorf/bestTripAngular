@@ -46,6 +46,9 @@ export class TravelGuideService {
   }
   public findByGlobalRating(globalRating:number):Observable<any>{
     return this.httpClient.get(this.BASE_URL+'/'+globalRating);
+
+
+
     
 
 }

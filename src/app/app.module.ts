@@ -37,9 +37,7 @@ import { AccountService } from "./services/account.service";
     AppRoutingModule,
     ToastrModule.forRoot()
   ],
-
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, RoleComponent, RestaurantComponent],
-
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
   providers: [ExperienceService],
   bootstrap: [AppComponent]
 })
