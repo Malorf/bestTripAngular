@@ -48,19 +48,25 @@
     <br><br><br>
     </div>
   
-    <div class="col-md-12">
+    <div class="col-md-12" (ngSubmit)="onSubmit()">
       <div class="col-md-12">
-        <div class="form-group" (ngSubmit)="onSubmit()">
+        <div class="form-group" >
             <h2>Search a place</h2>
         </div>
       </div>
   
+      
       <div class="col-md-12">
         <div class="form-group">
             <input type="text" value="" placeholder="Reserch an hotel, a restaurant, an acitivy ..." class="form-control" 
             [(ngModel)]="namePlace" name="namePlace"/>
         </div>
       </div>
+      <div class="col-md-4">
+          <button class="btn btn-primary btn-round" type="submit">Rechercher</button>
+      </div>
+      
+
     </div>
   
       <div class="col-md-6">
@@ -76,10 +82,10 @@
                 <table class=" table tablesorter" id="">
                   <thead class=" text-primary">
                     <tr>
-                      <th [(ngModel)]="place.placeName" name="placeName">Name Hotel</th>
-                      <th>Stars</th>
-                      <th>Address</th>
-                      <th>Cost</th>
+                      <th >Name Hotel</th>
+                      <th >Stars</th>
+                      <th >Address</th>
+                      <th >Cost</th>
                       <th class=" text-center">Rating</th>
                     </tr>
                   </thead>
@@ -148,7 +154,7 @@
                 <table class=" table tablesorter" id="">
                   <thead class=" text-primary">
                     <tr>
-                      <th [(ngModel)]="restaurant.placeName" name="placeName">Name Restaurant</th>
+                      <th [(ngModel)]="place.placeName" name="placeName">Name Restaurant</th>
                       <th>Take away</th>
                       <th>Address</th>
                       <th>Cost</th>
@@ -221,7 +227,6 @@
                     <tr>
                       <th>Name Activity</th>
                       <th>Free</th>
-                      <th>Activity Name</th>
                       <th>Address</th>
                       <th>Cost</th>
                       <th class=" text-center">Rating</th>

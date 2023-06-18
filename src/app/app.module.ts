@@ -15,12 +15,6 @@ import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
 import { ExperienceService } from "./services/experience.service";
 
-import { RestaurantComponent } from './pages/restaurant/restaurant.component';
-
-import { AccountComponent } from './pages/account/account.component';
-import { RoleComponent } from './role/role.component';
-import { LoginComponent } from "./pages/login/login.component";
-
 
 
 
@@ -36,9 +30,7 @@ import { LoginComponent } from "./pages/login/login.component";
     AppRoutingModule,
     ToastrModule.forRoot()
   ],
-
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, RoleComponent, RestaurantComponent],
-
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
   providers: [ExperienceService],
   bootstrap: [AppComponent]
 })
