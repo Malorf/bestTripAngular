@@ -48,7 +48,44 @@
     </div>
     </div>
     </div>
+    <br><br><br><br>
+    <div class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header mb-5">
+              <div class="typography-line">
+                
+    <div>
+      <table>
+          <tr>
+              <td>Country Name</td>
+              
+              
+              <td>Total Cost</td>
+            
+            
+              <td>Global rating</td>
 
+              <td> Action </td>
+              </tr>
+
+            
+          
+          <tr *ngFor="let u of users">
+              <td>{{u.countryName}}</td>
+              <td>{{u.totalCost}}</td>
+              <td>{{u.globalRating}}</td>
+              <td><button (click)="deleteTravelGuide(u.idTravelGuide)">Delete</button></td>
+          </tr>
+      </table>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
 
 
        <div class="col-md-12">

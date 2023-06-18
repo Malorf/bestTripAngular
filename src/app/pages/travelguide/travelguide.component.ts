@@ -17,13 +17,12 @@ import { TravelGuideService } from "src/app/services/travelguide.service";
 export class TravelGuideComponent implements OnInit{
   users!:any[]; 
   countries:any[];
+  tg: TravelGuide=new TravelGuide();
   
   countryName!:string;
   totalCost!:number;
   globalRating!:number;
-  title = 'best_trip_db';
-  data = [];
-
+ 
   constructor( private http: HttpClient, private travelGuideService:TravelGuideService){
     }
  
@@ -35,10 +34,10 @@ export class TravelGuideComponent implements OnInit{
     this.countryName = '';
     this.findByCountryName();
 
-    this.totalCost= 2;
+    this.totalCost=0;
     this.findByTotalCost();
 
-    this.globalRating= 2;
+    this.globalRating=0;
     this.findByGlobalRating();
 
 
@@ -58,8 +57,28 @@ findByGlobalRating(){
   this.travelGuideService.findByGlobalRating(this.totalCost).subscribe(data =>{
     this.users = data;
   })
-
 }
+saveTravelGuide(){
+  this.travelGuideService.save(this.tg).subscribe(
+    () => {
+      
+      this.findByCountryName();
+      this.findByTotalCost();
+      this.findByGlobalRating();
+      this.tg = new TravelGuide();
+    }
+  )
+}
+deleteTravelGuide(id:number){
+  this.travelGuideService.delete(id).subscribe(
+    () => {
+
+    }
+  )
+}
+
+
+
 onSubmit(){
   this.findByCountryName();
   this.findByTotalCost();

@@ -8,13 +8,11 @@ import { TravelGuide } from '../models/travelguide';
 })
 export class TravelGuideService {
 
-  private BASE_URL = "http://localhost:8080/travelguide";
+  private BASE_URL = "http://localhost:8080/travelGuides";
   
 
   constructor(private httpClient:HttpClient) { }
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
-  }
+  
  
   public findAll():Observable<any>{
     return this.httpClient.get(this.BASE_URL); 
