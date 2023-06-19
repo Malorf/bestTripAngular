@@ -8,7 +8,7 @@ import { Newsletter } from '../models/newsletter';
 })
 export class NewsletterService {
 
-  private BASE_URL = "http://localhost:9090/newsletter";
+  private BASE_URL = "http://localhost:8080/newsletters";
 
   constructor(private httpClient:HttpClient) { }
  

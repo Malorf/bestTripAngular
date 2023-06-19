@@ -31,7 +31,7 @@ import { ExperienceService } from "./services/experience.service";
     ToastrModule.forRoot()
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
-  providers: [ExperienceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

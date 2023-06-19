@@ -8,7 +8,7 @@ import { TravelGuide } from '../models/travelguide';
 })
 export class TravelGuideService {
 
-  private BASE_URL = "http://localhost:8080/travelguide";
+  private BASE_URL = "http://localhost:8080/travelGuides";
   
 
   constructor(private httpClient:HttpClient) { }

@@ -18,7 +18,7 @@
   <div class="col-md-12">
 <div class="main-container">
 <div div class="row justify-content-center">
-  <img src="assets/img/vol.jpg"alt="" style="width:400px;height:350px;">
+  <img src="assets/img/vol.jpg"alt="" style="width:470px;height:350px;">
 
 </div>
 </div>
@@ -30,31 +30,67 @@
        <div class="col-md-12">
         <div class="col-md-12">
           <div class="form-group">
-              <h2 style ="text-align: center">À la une</h2>
-              <p  style ="text-align: center" >En ce beau mois d'été il est important de savoir où partir en vacance</p>
-              <p style ="text-align: center" >C'est pour cela que l'on vous a selectionné le travel guide le plus sollicité
+              <br><h2 style ="text-align: center">À la une</h2>
+              <p  style ="text-align: center" >En ce beau mois d'été il est important de savoir où partir en vacances</p>
+              <p style ="text-align: center" >Pour cela, on vous a selectionné le travel guide le plus sollicité !</p> 
+              <br><br><br><br>
           </div>
         </div>
         </div>
+       
+
+        <div class=" card-body">
+          <br>
+    <h4>The Best TravelGuide ! </h4>
+    <br>
+          <div class=" table-responsive">
+            <!--<form  (ngSubmit)="findAllTravelGuide()">-->
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th >Name </th>
+                  <th >Rating</th>
+                  <th >Country</th>
+                  <th>More Details</th>
+              
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let t of travelguide" >
+                  <td>{{t.guideName}}</td>
+                  <td>{{t.globalRating}}</td>
+                  <td>{{t.countryName}}</td>
+                  <a href="http://localhost:4200/#/travelguide">Click</a>
+                  
+                </tr>
+              </tbody>
+            </table>
+            <!--</form>-->
+          </div>
+
+
 
    
    <div class="col-md-12">
-   </div>
+   
    <br><br>
       <div class="col-md-6">
       <div class="section" id="carousel">
         <div class="main-container">
             <div class="col-md-12">
+              <br><br>
+                <h4>Pictures</h4>
               <ngb-carousel>
                 <ng-template ngbSlide>
                
-                  <img class="d-block" src="assets/img/imgnewsletter.jpeg" alt="First slide" class="">>
+                  <img class="d-block" src="assets/img/vol.jpg" alt="First slide" class="">
                     <div class="carousel-caption d-none d-md-block">
                       <h5>ajouter un titre</h5>
                     </div>
                 </ng-template>
                 <ng-template ngbSlide>
-                  <img class="d-block" src="assets/img/vol.jpg" alt="Second slide">
+
+                  <img class="d-block" src="assets/img/avion.jpg" alt="Second slide"class="">
                     <div class="carousel-caption d-none d-md-block">
                       <h5>ajouter un titre</h5>
                     </div>
@@ -68,14 +104,16 @@
 <div class="main-container">
   <div  class="col-md-12" >
     <br><br>
-    <h4> Les vidéos des travel guide</h4>
-    <iframe width="500" height="320" src="https://youtube.com/embed/s5DZOo_zfXQ" frameborder="0"
+    <h4>Videos</h4>
+    <iframe width="600" height="420" src="https://youtube.com/embed/s5DZOo_zfXQ" frameborder="0"
     allowfullscreen></iframe>
     </div>
 
     </div>
    </div>
-   
+   </div>
+
+
     </div>
     </div>
 
