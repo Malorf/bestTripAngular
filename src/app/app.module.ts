@@ -17,10 +17,8 @@ import { ExperienceService } from "./services/experience.service";
 
 import { RestaurantComponent } from './pages/restaurant/restaurant.component';
 
-import { AccountComponent } from './pages/account/account.component';
 import { RoleComponent } from './role/role.component';
-import { LoginComponent } from "./pages/login/login.component";
-import { AccountService } from "./services/account.service";
+
 
 
 
@@ -36,9 +34,10 @@ import { AccountService } from "./services/account.service";
     RouterModule,
     AppRoutingModule,
     ToastrModule.forRoot()
+  
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
-  providers: [ExperienceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

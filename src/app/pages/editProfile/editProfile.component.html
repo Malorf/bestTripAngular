@@ -1,57 +1,86 @@
-<div class="content">   
+
+<div class=" content">
     <div class=" row">
-    <div class=" col-md-12">
-      <div class=" card">
-        <div class=" card-header mb-5">
-          <h1 class=" card-title">Profile</h1>
-        </div>
-        <div class=" card-body">
-              </div>
-              <div class=" typography-line">
-                    <div>
-                        <h1>Edit Profile</h1>
-                        <h1>Welcome {{account.username}}</h1>
-                        <p>This is your profile page. You can edit your informations.
-                        </p>
-                            <div>
-                                <div>
-                                </div>
-                                <div>
-                                    <table [hidden]="authenticated()">
-                                        <tr>
-                                        <td>Profile Name</td>
-                                        <td>New Password</td>
-                                        <td>Confirm New Password</td>
-                                        <td>Subscription to Newsletter</td>
-                                        <td>Profile Picture</td>
-                                        <td>Amount of Guide Contributions</td>
-                                        <td>Amount of Experiences shared</td>
-                                    </tr>
-                                    <tr>
-                                    <form>
-                                    <tr>
-                                        <td>{{account.profileName}}</td>
-                                        <td>{{account.password}}</td>
-                                        <td>check password</td>
-                                        <td>{{account.sub}}</td>
-                                    </tr>
-                                    </form>
-                                    </table>
-                                </div>
+      <div class=" col-md-8">
+        <div class=" card">
+          <div class=" card-header"><h5 class=" title">Edit Profile</h5></div>
+          <div class=" card-body" *ngIf="account"><h3>Welcome '{{account.username}}', This is your profile page, you can edit your informations.</h3>
+            <form [formGroup]="editForm">
+                <h6 class="heading-small text-muted mb-4">User information</h6>
+                <div class="pl-lg-4">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-control-label" for="input-first-name">Profile Name</label>
+                                <input type="text" [(ngModel)]="account.profileName"
+                                    formControlName="profileName" id="input-first-name"
+                                    class="form-control form-control-alternative">
                             </div>
                         </div>
-                    </div>
-                    <div class=" card-body">
-                    </div>
-                    <div class=" typography-line">
-                          <div>
-                              <h1>Best trip newsletter</h1>
-                                  <div>
-
-                                  </div>
-                              </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                              <label class="form-control-label" for="input-email">Email address</label>
+                              <input type="text" [(ngModel)]="account.eMail" formControlName="eMail"
+                                  id="input-email" class="form-control form-control-alternative">
                           </div>
+                      </div>
+                      <div class="col-lg-6"> 
+                        <div class="form-group"> 
+                          <label class="form-control-label" for="input-current-password">Current Password</label>
+                           <input type="password" [(ngModel)]="currentPassword" formControlName="currentPassword" 
+                           id="input-current-password" class="form-control form-control-alternative"> 
+                          </div>
+                         </div>
+                         <div class="col-lg-6"> 
+                          <div class="form-group"> 
+                            <label class="form-control-label" for="input-new-password">New Password</label>
+                             <input type="password" [(ngModel)]="account.password" formControlName="newPassword" 
+                             id="input-new-password" class="form-control form-control-alternative"> 
+                            </div>
+                           </div>
+                         <div class="col-lg-6"> 
+                          <div class="form-group"> 
+                            <label class="form-control-label" for="input-confirm-new-password">Confirm new Password</label>
+                             <input type="password"  ([ngModel])="confirmNewPassword" formControlName="confirmNewPassword" 
+                             id="input-confirm-new-password" class="form-control form-control-alternative"> 
+                            </div>
+                           </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label">Subscribe to Newsletter</label>
+                            <br>
+                            <input type="checkbox" [(ngModel)]="account.sub" formControlName="sub"
+                              id="input-subscribe" class="form-check-input">
+                          </div>
+                          
+                      </div>
+                    </div>
+                    <div>
+                        <button class="btn btn-danger" (click)="changePassword()">Update</button>
+                    </div>
                 </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+      <div class=" col-md-4">
+        <div class=" card card-user">
+          <div class=" card-body">
+            <p class=" card-text"></p>
+            <div class=" author">
+              <div class=" block block-one"></div>
+              <div class=" block block-two"></div>
+              <div class=" block block-three"></div>
+              <div class=" block block-four"></div>
+              <a href="javascript:void(0)">
+                <img alt="..." class=" avatar" src="assets/img/emilyz.jpg" />
+  
+                <h5 class=" title">{{account.profileName}}</h5>
+              </a>
+              <p class=" description"><span *ngFor="let role of account.roles">{{ role.nameRole }} , </span></p>
             </div>
         </div>
-</div>
+      </div>
+    </div>
+  </div>

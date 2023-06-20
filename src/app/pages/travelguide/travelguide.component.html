@@ -4,49 +4,55 @@
     <div class="col-md-12">
       <div class="container text-center">
         <div class="row justify-content-md-center">
-          <h1 class="title">Travel Guide</h1>
+
+          <h1 class="title">Travel Guides</h1>
         </div> 
       </div>
     </div>
-      
-  
+     
+ 
+
   <div class="col-md-12">
     <div class="card">
       <div class="card-header mb-5">
         <div class="typography-line">
-          <h1>Research</h1>
+
+          <h1>Search</h1>
+
         </div>
         <form (ngSubmit)="onSubmit()">
             <div class="col-md-12">
                   <p> Country Name :</p>
                     <input type="text" 
                     value="" 
-                    placeholder="Entrer le nom d'un pays" 
-                    [(ngModel)]="countryName" name="Countryname"
+
+                    placeholder="Enter the name of a contry" 
+                    [(ngModel)]="countryName" name="countryName"
                     class="form-control" 
                     style="border-radius: 7;" />
                   <p> Total Cost :</p>
-                  <input type="number" 
+                  <input type="text" 
                     value="" 
-                    placeholder="Entrer le coût du voyage" 
-                    [(ngModel)]="totalCost" name="Totalcost"
+                    placeholder="Enter a cost" 
+                    [(ngModel)]="totalCost" name="totalCost"
                     class="form-control" 
                     style="border-radius: 7;" />
-                
+               
                   <p> Global Rating :</p>
-                  <input type="number" 
+                  <input type="text" 
                     value="" 
-                    placeholder="Entrer le coût du voyage" 
+                    placeholder="Enter the rating" 
                     [(ngModel)]="globalRating" name="globalRating"
                     class="form-control" 
                     style="border-radius: 7;" />
-            
+           
             </div>
-  
+ 
             <div class=" card-header">
               <div class="container text-center">
                 <div class="row justify-content-md-center">
-              <button class="btn btn-primary btn-round" type="submit" >Recherche</button>
+              <button class="btn btn-primary btn-round" type="submit" >Search</button>
+
                 </div>
               </div>
             </div>
@@ -55,20 +61,24 @@
     </div>
   </div>
 
-  
+
+ 
   <br><br><br><br>
-  
+ 
+
 
       <div class="col-md-12">
         <div class=" col-md-12">
           <div class=" card">
             <div class=" card-header">
-              <h3 class=" card-title">Resultats de la recherche</h3>
+
+              <h3 class=" card-title">Results</h3>
             </div>
-  
+ 
             <div class=" card-body">
               <div class=" table-responsive">
-                
+               
+
                 <table class=" table tablesorter" id="">
                   <thead class=" text-primary">
                     <tr>
@@ -105,6 +115,7 @@
         </div>
       </div>
 
+
   <div class="col-md-12">
     <div class="row justify-content-md-center">
     <div class="section" id="carousel">
@@ -114,13 +125,25 @@
             <ng-template ngbSlide>
               <img class="d-block" src="assets/img/peoplehavingfun.jpg" alt="First slide" class="">>
               <div class="carousel-caption d-none d-md-block">
-                <h5>ajouter un titre</h5>
+                <h5>Treat yourself to a weekend at the beach!</h5>
               </div>
             </ng-template>
             <ng-template ngbSlide>
-              <img class="d-block" src="assets/img/vol.jpg" alt="Second slide">
+              <img class="d-block" src="assets/img/paris.jpg" alt="Second slide">
               <div class="carousel-caption d-none d-md-block">
-                <h5>Photos des travel guides</h5>
+                <h5>Treat yourself to a weekend in Paris</h5>
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <img class="d-block" src="assets/img/rome.jpg" alt="Second slide">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Treat yourself to a weekend in Rome !</h5>
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <img class="d-block" src="assets/img/titre-restaurant.jpg" alt="Second slide">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Fly away ! !</h5>
               </div>
             </ng-template>
           </ngb-carousel>
@@ -131,42 +154,20 @@
     <div class="container text-center">
       <div class="row justify-content-md-center">
         <div class="form-group">
-          <h2>Best travel guide</h2>
+        
         </div>
       </div>
     </div>
   </div>
 
-  <div class="col-md-12">
-      <div class=" card">
-        <div class=" card-header">
-          <h3 class=" card-title">Travel guide</h3>
-        </div>
-        <div class=" card-body">
-          <div class=" table-responsive">
-            <table class=" table tablesorter" id="">
-              <thead class=" text-primary">
-                <tr>
-                  <th>Name</th>
-                  <th>Rating</th>
-                  <th>Cost</th>
-                  <th class=" text-center">Rating</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>placeholder</td>
-                  <td>placeholder</td>
-                  <td>placehorder</td>
-                  <td class=" text-center">exemple</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    
-  </div>
+  
+
+<div style="text-align: center">
+  <form>
+  
+<a href="#" Onclick="javascript:window.print()">Print or download our Travel Guides in PDF format !!</a>
+
+  </form>
 </div>
-</div>
-          
+         
+

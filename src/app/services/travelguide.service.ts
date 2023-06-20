@@ -10,7 +10,11 @@ export class TravelGuideService {
 
   private BASE_URL = "http://localhost:8080/travelGuides";
 
+  
+
   constructor(private httpClient:HttpClient) { }
+  
+
   public findAll():Observable<any>{
   return this.httpClient.get(this.BASE_URL); 
   }
@@ -25,14 +29,20 @@ export class TravelGuideService {
   return this.httpClient.get(this.BASE_URL+'/'+id);
   }
   public update(travelguide:any):Observable<any>{
-  var travelguideJSON = JSON.parse(travelguide);
-  return this.httpClient.put(this.BASE_URL+'/'+travelguideJSON.idTravelGuide,travelguideJSON);
+
+ 
+    var travelguideJSON = JSON.parse(travelguide);
+    return this.httpClient.put(this.BASE_URL+'/'+travelguideJSON.idTravelGuide,travelguideJSON);
+  
   }
   public findByCountryNameAndTotalCostAndGlobalRating (countryName:string, totalCost:number, globalRating:number ):Observable<any>{
-  return this.httpClient.get(this.BASE_URL+'/'+countryName+'/'+totalCost+'/'+globalRating
-                              );
+    return this.httpClient.get(this.BASE_URL+'/'+countryName+'/'+totalCost+'/'+globalRating);
   
-  
+
+
+}
+
+
   }
 
 }

@@ -19,9 +19,18 @@ export class TravelGuideComponent implements OnInit{
   users!:any[]; 
   countries:any[];
   tg: TravelGuide=new TravelGuide();
+
+  
   countryName!:string;
   totalCost!:number;
   globalRating!:number;
+
+ 
+ 
+  constructor( private https: HttpClient, private travelGuideService:TravelGuideService, private router:Router){
+    }
+ 
+
   
   constructor( private travelGuideService:TravelGuideService, private router:Router){
   }
@@ -32,39 +41,51 @@ export class TravelGuideComponent implements OnInit{
   this.globalRating  [0],
   this.findByCountryNameAndTotalCostAndGlobalRating();
   
+
+  ngOnInit(): void {
+
+    this.countryName = '',
+     this.totalCost= null;
+     this.globalRating=null;
+    this.findByCountryNameAndTotalCostAndGlobalRating();
+
+
+
+
   }
   findByCountryNameAndTotalCostAndGlobalRating(){
-  this.travelGuideService.findByCountryNameAndTotalCostAndGlobalRating(this.countryName,this.totalCost,this.globalRating).subscribe(data =>{
-  this.users = data;
-  })
-  }
-  saveTravelGuide(){
+    this.travelGuideService.findByCountryNameAndTotalCostAndGlobalRating(this.countryName,this.totalCost,this.globalRating).subscribe(data =>{
+      this.users = data; console.log("users="+this.users);
+    })
+  
+}
+
+saveTravelGuide(){
   this.travelGuideService.save(this.tg).subscribe(
-  () => {
-  this.findByCountryNameAndTotalCostAndGlobalRating();
-  this.tg = new TravelGuide();
-  }
+    () => {
+      
+      this.findByCountryNameAndTotalCostAndGlobalRating();
+      
+      this.tg = new TravelGuide();
+    }
   )
-  }
-  
-  editTravelGuide(travelGuide:TravelGuide){
-  localStorage.removeItem("editUserId");
-  localStorage.setItem("editUserId",travelGuide.idTravelGuide.toString());
-  this.router.navigate(['/editUser',travelGuide.idTravelGuide]);
-  }
-  
-  deleteTravelGuide(id:number){
+
+}
+
+deleteTravelGuide(id:number){
   this.travelGuideService.delete(id).subscribe(
-  () => {
-  
-  }
+    () => {
+
+    }
   )
-  }
-  
-  
-  
-  onSubmit(){
+}
+
+
+
+onSubmit(){
   this.findByCountryNameAndTotalCostAndGlobalRating();
-  
-  }
+
+
+}
+
 }
