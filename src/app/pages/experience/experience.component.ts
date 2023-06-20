@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import Chart from 'chart.js';
 import { AppService } from "src/app/app.service";
 import { Experience } from "src/app/models/experience";
+import { AccountService } from "src/app/services/account.service";
 import { ExperienceService } from "src/app/services/experience.service";
 
 @Component({
@@ -12,7 +13,7 @@ import { ExperienceService } from "src/app/services/experience.service";
 export class ExperienceComponent implements OnInit {
 experiences!: any [];
 users!:any[];
-accounts!:any[]
+AccountExperiences!:any[]
 experience:Experience=new Experience;
 
 date!:Date;
@@ -20,18 +21,19 @@ date!:Date;
 selectedFiles:FileList;
 currentFileUpload:File;
 
-constructor(private experienceService:ExperienceService,/*private accountService:AccountService,*/private router:Router,private appService:AppService){
+constructor(private experienceService:ExperienceService,private accountService:AccountService,private router:Router,private appService:AppService){
 }
+
 ngOnInit(): void {
   this.findAllExperiences();
 
- /* this.findAllAccounts();*/
+ this.findAllAccounts();
  this.date;
  this.findByUpdateExp();
 }
 findAllExperiences(){
   
-  this.experienceService.findAll().subscribe(data => {this.accounts = data});
+  this.experienceService.findAll().subscribe(data => {this.experiences = data});
 }
 
 findByUpdateExp(){
@@ -41,23 +43,27 @@ findByUpdateExp(){
 }
 
 onSubmit(){
+  this.findAllExperiences();
   this.findByUpdateExp();
+
 }
-/*findAllAccounts(){
-  this.accountService.findAll().subscribe(data => {this.accounts = data});
-}*/
-/*saveExperience(){
-  this.experienceService.save(this.user).subscribe(
+findAllAccounts(){
+  this.accountService.findAll().subscribe(data => {this.AccountExperiences = data});
+}
+
+saveExperience(){
+  this.experienceService.save(this.experience).subscribe(
     () => {
       
       this.findAllExperiences();
+     this.findAllAccounts();
       
-      this.user = new Experience();
+      this.experience = new Experience();
     }
   )
-}*/
+}
 
-selectFile(event:any){
+/*selectFile(event:any){
   this.selectedFiles=event.target.files;
 }
 saveExperience(){
@@ -67,7 +73,7 @@ saveExperience(){
     this.experience= new Experience();
     this.selectedFiles = undefined;
 });
-}
+}*/
 
 deleteExperience(id:number){
   this.experienceService.delete(id).subscribe(
@@ -76,11 +82,7 @@ deleteExperience(id:number){
     }
   )
 }
-editExperience(experience:Experience){
-  localStorage.removeItem("editExperienceId");
-  localStorage.setItem("editExperienceId",experience.idExperience.toString());
-  this.router.navigate(['/editExperience',experience.idExperience]);
-}
+
 
 authenticated(){
   return this.appService.authenticated; // authenticated = false

@@ -8,7 +8,7 @@ import { HttpClient, HttpRequest } from '@angular/common/http';
 })
 export class ExperienceService {
 
-  private BASE_URL = "http://localhost:8080/experience";
+  private BASE_URL = "http://localhost:8080/experiences";
 
   constructor(private httpClient:HttpClient) { }
  
@@ -16,17 +16,10 @@ export class ExperienceService {
     return this.httpClient.get(this.BASE_URL); 
   }
  
-  public save(image:File,experience:Experience):Observable<any>{
-    // Utilisation du RequestParam de la Partie Back
-    const formData=new FormData();
-    formData.append('description',experience.description);
-    formData.append('urlVideoExp',experience.urlVideoExp);
-    formData.append('imageExp',experience.imageExp);
-    const requestHttp=new HttpRequest('POST',this.BASE_URL,formData,{
-     reportProgress:true, responseType:'text'
-    });
-    return this.httpClient.request(requestHttp);
- }
+   // save --> verbe http POST --> url : BASE_URL + Body (utilisateur)
+  public save(experience:Experience):Observable<any>{
+    return this.httpClient.post(this.BASE_URL,experience);
+  }
 
   public delete(id:number):Observable<any>{
     return this.httpClient.delete(this.BASE_URL+"/"+id);

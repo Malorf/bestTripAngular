@@ -37,7 +37,7 @@ import { RoleComponent } from './role/role.component';
   
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
-  providers: [ExperienceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
