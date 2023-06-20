@@ -13,11 +13,28 @@ export class AppService {
   // Autorisation :
   isAdmin = false;
   isAccount = false;
+  idAccount:any;
 
-  constructor(private httpClient:HttpClient, private router:Router) { }
+  constructor(private httpClient:HttpClient, private router:Router) { 
 
+    const accountData = localStorage.getItem('accountData');
+    if (accountData)
+    {
+      this.responseAll =JSON.parse(accountData);
+      this.idAccount =this.responseAll['idAccount'];
+    }
+  }
+  // data account
+  storeAccountData(accountData:any){
+    localStorage.setItem('accountData',JSON.stringify(accountData));
+  }
+  getAccountData()
+  {
+    return JSON.parse(localStorage.getItem('accountData')||'{}');
+  }
   logout()
   {
+    localStorage.removeItem('accountData');
     this.authenticated=false;
     this.isAdmin=false;
     this.isAccount=false;
@@ -43,11 +60,26 @@ export class AppService {
           if(this.responseAll['roles'][i]['idRole']==2){
             this.isAdmin = true;
           }
+          this.storeAccountData(this.responseAll);
+          localStorage.setItem('currentAccount',JSON.stringify(this.responseAll)); //stock data of connected account
+          localStorage.setItem('authenticated','true');
         }
       }else{
         this.authenticated = false;
       }
       return callback && callback();
-    })
+    },
+      (error) => {
+        if (error.status ===401)
+        {
+          this.authenticated=false;
+          return callback && callback();
+          
+        }
+        else {
+          console.error('error during authentication', error);
+        }
+      }
+    );
   }
 }

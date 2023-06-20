@@ -32,11 +32,35 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.sidebarVisible = false;
   }
 
+  authorities(){
+    if(this.appService.isAdmin == true){
+      return false; // [hidden] = false isAdmin = true
+    }else{
+      return true; // [hidden] = true isAdmin = false
+    }
+  }
+  authenticated(){
+    if(this.appService.isAccount== true){
+      return false; // not hidden
+    }else{
+      return true; // [hidden
+    }
+  }
+
   logout()
   {
    this.appService.logout();
   }
 
+  redirectToProfile()
+  {
+    this.router.navigate(['/editProfile']);
+  }
+
+  redirectToAdmin()
+  {
+    this.router.navigate(['/admin']);
+  }
   redirectToLogin()
   {
     this.router.navigate(['/login']);

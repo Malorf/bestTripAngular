@@ -34,5 +34,10 @@ export class NewsletterService {
     var newsletterJSON = JSON.parse(newsletter);
     return this.httpClient.put(this.BASE_URL+'/'+newsletterJSON.idNewsletter,newsletterJSON);
   }
+  public findByPublicationDate (publicationDate:Date):Observable<any>{
+    return this.httpClient.get(this.BASE_URL+'/'+publicationDate);
+  
+
+  }
 
 }
