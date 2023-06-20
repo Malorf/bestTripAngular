@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AdminLayoutRoutes } from "./admin-layout.routing";
 import { ExperienceComponent } from "../../pages/experience/experience.component";
@@ -22,12 +22,14 @@ import { PlaceComponent } from "../../pages/place/place.component";
 import { LoginComponent } from "../../pages/login/login.component";
 import { AccountComponent } from "../../pages/account/account.component";
 import { AdminComponent } from "../../pages/admin/admin.component";
+import { EditProfileComponent } from "../../pages/editProfile/editProfile.component";
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
   ],
@@ -46,7 +48,8 @@ import { AdminComponent } from "../../pages/admin/admin.component";
     TypographyComponent,
     MapComponent,
     PlaceComponent,
-    AdminComponent
+    AdminComponent,
+    EditProfileComponent,
     
   ]
 })

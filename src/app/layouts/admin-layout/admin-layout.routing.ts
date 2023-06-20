@@ -18,7 +18,7 @@ import { HomeComponent } from "../../pages/home/home.component";
 import { LoginComponent } from "../../pages/login/login.component";
 import { AccountComponent } from "../../pages/account/account.component";
 import { AdminComponent } from "../../pages/admin/admin.component";
-import { EditProfileComponent } from "src/app/pages/editProfile/editProfile.component";
+import { EditProfileComponent } from "../../pages/editProfile/editProfile.component";
 
 
 

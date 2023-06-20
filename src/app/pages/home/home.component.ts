@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import Chart from 'chart.js';
 
 @Component({
@@ -7,6 +8,20 @@ import Chart from 'chart.js';
 })
 export class HomeComponent implements OnInit {
 
+    constructor(private router:Router){}
     ngOnInit() {
+    }
+
+    redirectToAccount()
+    {
+      this.router.navigate(['/account']);
+    }
+    redirectToTravelGuides()
+    {
+      this.router.navigate(['/travelguide']);
+    }
+    redirectToPlace()
+    {
+      this.router.navigate(['/place']);
     }
 }
