@@ -24,6 +24,12 @@
                   
                   </div>
               </ng-template>
+              <ng-template ngbSlide>
+                <img class="d-block" src="assets/img/boat3.jpg" alt="Second slide" style="width:470px;height:350px;">
+                  <div class="carousel-caption d-none d-md-block">
+                  
+                  </div>
+              </ng-template>
             </ngb-carousel>
           </div>
         </div>
@@ -70,14 +76,14 @@
                 <div class="col-md-3 pr-1">
                   <label>Add video link</label>
                   <input type="text" [(ngModel)]="experience.urlVideoExp" name="urlVideoExp"/>
-                  <label>N° Account</label>
-                  <input type="number" [(ngModel)]="experience.accountExperience" name="accountExperience"/>
+                 <label>N° Account</label>
+                  <input type="text" [(ngModel)]="experience.accountExperience" name="accountExperience"/>
                  
                 
               </div>
              <!-- <div class="row" style ="position:absolute; top: 440px;">-->
                 <div class="col-md-2 pl-1" style ="position:absolute; top: 50px; left: 550px;">
-                  <button class="btn btn-primary btn-round" >Soumettre</button>
+                  <button class="btn btn-primary btn-round" >Submit</button>
                <!-- </div>-->
               </div>
               </form>
@@ -104,7 +110,7 @@
           </tr>
           
               <td colspan="2">
-                  <br><button type="submit" style="border-radius: 30px;width: 140px; height: 30px; background:linear-gradient(rgb(207, 38, 207),purple); color: white;">Recherche</button>
+                  <br><button type="submit" style="border-radius: 30px;width: 140px; height: 30px; background:linear-gradient(rgb(207, 38, 207),purple); color: white;">Research</button>
               </td>
           <tr>
 
@@ -137,7 +143,7 @@
                     </thead>
                   
                     <tbody>
-                      <tr *ngFor="let e of experience">
+                      <tr *ngFor="let e of experiences">
                         <td>{{e.updateExp}}</td>
                         <td>{{e.description}}</td>
                         <td>{{e.urlVideoExp}}</td>
@@ -155,7 +161,7 @@
           </div>
         </div>
        
-        
+        <!--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-->
       
         
   

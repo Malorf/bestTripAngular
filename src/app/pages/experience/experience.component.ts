@@ -13,7 +13,7 @@ import { ExperienceService } from "src/app/services/experience.service";
 export class ExperienceComponent implements OnInit {
 experiences!: any [];
 users!:any[];
-accountExperiences!:any[]
+AccountExperiences!:any[]
 experience:Experience=new Experience;
 
 date!:Date;
@@ -27,7 +27,7 @@ constructor(private experienceService:ExperienceService,private accountService:A
 ngOnInit(): void {
   this.findAllExperiences();
 
- /*this.findAllAccounts();*/
+ this.findAllAccounts();
  this.date;
  this.findByUpdateExp();
 }
@@ -47,16 +47,16 @@ onSubmit(){
   this.findByUpdateExp();
 
 }
-/*findAllAccounts(){
-  this.accountService.findAll().subscribe(data => {this.accountExperiences = data});
-}*/
+findAllAccounts(){
+  this.accountService.findAll().subscribe(data => {this.AccountExperiences = data});
+}
 
 saveExperience(){
   this.experienceService.save(this.experience).subscribe(
     () => {
       
       this.findAllExperiences();
-     /*this.findAllAccounts();*/
+     this.findAllAccounts();
       
       this.experience = new Experience();
     }
