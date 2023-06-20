@@ -17,14 +17,15 @@ import { TravelGuideService } from "src/app/services/travelguide.service";
 export class TravelGuideComponent implements OnInit{
   users!:any[]; 
   countries:any[];
+  tg: TravelGuide=new TravelGuide();
   
   countryName!:string;
   totalCost!:number;
   globalRating!:number;
-  title = 'best_trip_db';
-  data = [];
 
-  constructor( private http: HttpClient, private travelGuideService:TravelGuideService){
+ 
+ 
+  constructor( private https: HttpClient, private travelGuideService:TravelGuideService, private router:Router){
     }
  
   
@@ -32,37 +33,47 @@ export class TravelGuideComponent implements OnInit{
   
   ngOnInit(): void {
 
-    this.countryName = '';
-    this.findByCountryName();
+    this.countryName = '',
+     this.totalCost= null;
+     this.globalRating=null;
+    this.findByCountryNameAndTotalCostAndGlobalRating();
 
-    this.totalCost= 2;
-    this.findByTotalCost();
 
-    this.globalRating= 2;
-    this.findByGlobalRating();
 
 
   }
-  findByCountryName(){
-    this.travelGuideService.findByCountryName(this.countryName).subscribe(data =>{
-      this.users = data;
-    })
-  }
-  findByTotalCost(){
-    this.travelGuideService.findByTotalCost(this.totalCost).subscribe(data =>{
-      this.users = data;
+  findByCountryNameAndTotalCostAndGlobalRating(){
+    this.travelGuideService.findByCountryNameAndTotalCostAndGlobalRating(this.countryName,this.totalCost,this.globalRating).subscribe(data =>{
+      this.users = data; console.log("users="+this.users);
     })
   
 }
-findByGlobalRating(){
-  this.travelGuideService.findByGlobalRating(this.totalCost).subscribe(data =>{
-    this.users = data;
-  })
+
+saveTravelGuide(){
+  this.travelGuideService.save(this.tg).subscribe(
+    () => {
+      
+      this.findByCountryNameAndTotalCostAndGlobalRating();
+      
+      this.tg = new TravelGuide();
+    }
+  )
 
 }
-onSubmit(){
-  this.findByCountryName();
-  this.findByTotalCost();
-  this.findByGlobalRating();
+
+deleteTravelGuide(id:number){
+  this.travelGuideService.delete(id).subscribe(
+    () => {
+
+    }
+  )
 }
+
+
+
+onSubmit(){
+  this.findByCountryNameAndTotalCostAndGlobalRating();
+
+}
+
 }

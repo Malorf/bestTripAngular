@@ -34,6 +34,7 @@ import { RoleComponent } from './role/role.component';
     RouterModule,
     AppRoutingModule,
     ToastrModule.forRoot()
+  
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
   providers: [ExperienceService],
