@@ -22,8 +22,10 @@ export class TravelGuideComponent implements OnInit{
   countryName!:string;
   totalCost!:number;
   globalRating!:number;
+
  
-  constructor( private http: HttpClient, private travelGuideService:TravelGuideService){
+ 
+  constructor( private https: HttpClient, private travelGuideService:TravelGuideService, private router:Router){
     }
  
   
@@ -31,44 +33,34 @@ export class TravelGuideComponent implements OnInit{
   
   ngOnInit(): void {
 
-    this.countryName = '';
-    this.findByCountryName();
+    this.countryName = '',
+     this.totalCost= null;
+     this.globalRating=null;
+    this.findByCountryNameAndTotalCostAndGlobalRating();
 
-    this.totalCost=0;
-    this.findByTotalCost();
 
-    this.globalRating=0;
-    this.findByGlobalRating();
 
 
   }
-  findByCountryName(){
-    this.travelGuideService.findByCountryName(this.countryName).subscribe(data =>{
-      this.users = data;
-    })
-  }
-  findByTotalCost(){
-    this.travelGuideService.findByTotalCost(this.totalCost).subscribe(data =>{
-      this.users = data;
+  findByCountryNameAndTotalCostAndGlobalRating(){
+    this.travelGuideService.findByCountryNameAndTotalCostAndGlobalRating(this.countryName,this.totalCost,this.globalRating).subscribe(data =>{
+      this.users = data; console.log("users="+this.users);
     })
   
 }
-findByGlobalRating(){
-  this.travelGuideService.findByGlobalRating(this.totalCost).subscribe(data =>{
-    this.users = data;
-  })
-}
+
 saveTravelGuide(){
   this.travelGuideService.save(this.tg).subscribe(
     () => {
       
-      this.findByCountryName();
-      this.findByTotalCost();
-      this.findByGlobalRating();
+      this.findByCountryNameAndTotalCostAndGlobalRating();
+      
       this.tg = new TravelGuide();
     }
   )
+
 }
+
 deleteTravelGuide(id:number){
   this.travelGuideService.delete(id).subscribe(
     () => {
@@ -80,8 +72,8 @@ deleteTravelGuide(id:number){
 
 
 onSubmit(){
-  this.findByCountryName();
-  this.findByTotalCost();
-  this.findByGlobalRating();
+  this.findByCountryNameAndTotalCostAndGlobalRating();
+
 }
+
 }

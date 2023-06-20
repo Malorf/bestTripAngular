@@ -29,6 +29,7 @@ import { ExperienceService } from "./services/experience.service";
     RouterModule,
     AppRoutingModule,
     ToastrModule.forRoot()
+  
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
   providers: [ExperienceService],

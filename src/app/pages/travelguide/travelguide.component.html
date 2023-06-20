@@ -1,149 +1,161 @@
 <div class="content">
   <div class="row">
+
     <div class="col-md-12">
-      <div class="col-md-12">
-        <div class="section">
-          <div class="container text-center">
-              <div class="row justify-content-md-center">
-                  <div class="col-md-12 col-lg-8">
-                      <h1 class="title">Travel Guide</h1>
-                    
-                  </div>
-              </div>
-          </div>
+      <div class="container text-center">
+        <div class="row justify-content-md-center">
+          <h1 class="title">Travel Guides</h1>
+        </div> 
       </div>
     </div>
-     </div>
-<div class="content">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header mb-5">
-            <div class="typography-line">
-                <div>
-                  <h1>Research</h1>
-            <form (ngSubmit)="onSubmit()">
-           <table>
-            <tr>
-                <td> Country Name </td>
-                <input type="text" [(ngModel)]="countryName" name="Countryname"/><td>
-                  </tr>
-                    <tr>
-                      <td> Total Cost </td>
-                      <td><input type="text" [(ngModel)]="totalCost" name="Totalcost"/></td>
-                    </tr>
-                    <tr>
-                      <td> Global Rating </td>
-                      <td><input type="text" [(ngModel)]="globalRating" name="globalRating"/></td>
-                    </tr>
-                    <tr>
-                    </tr>
-                    <td colspan="2">
-                        <button type="submit">Recherche</button>
-                    </td>
-            </table>
-        </form>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <br><br><br><br>
-    <div class="content">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card">
-            <div class="card-header mb-5">
-              <div class="typography-line">
-                
-    <div>
-      <table>
-          <tr>
-              <td>Country Name</td>
-              
-              
-              <td>Total Cost</td>
-            
-            
-              <td>Global rating</td>
-
-              <td> Action </td>
-              </tr>
-
-            
-          
-          <tr *ngFor="let u of users">
-              <td>{{u.countryName}}</td>
-              <td>{{u.totalCost}}</td>
-              <td>{{u.globalRating}}</td>
-              <td><button (click)="deleteTravelGuide(u.idTravelGuide)">Delete</button></td>
-          </tr>
-      </table>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
-
-
-       <div class="col-md-12">
-    </div>
-    <br><br>
-       <div class="col-md-6">
-       <div class="section" id="carousel">
-         <div class="main-container">
-             <div class="col-md-12">
-               <ngb-carousel>
-                 <ng-template ngbSlide>
-                
-                   <img class="d-block" src="assets/img/peoplehavingfun.jpg" alt="First slide" class="">>
-                     <div class="carousel-caption d-none d-md-block">
-                       <h5>ajouter un titre</h5>
-                     </div>
-                 </ng-template>
-                 <ng-template ngbSlide>
-                   <img class="d-block" src="assets/img/vol.jpg" alt="Second slide">
-                     <div class="carousel-caption d-none d-md-block">
-                       <h5>Photos des travel guides</h5>
-                     </div>
-                 </ng-template>
-               </ngb-carousel>
-             </div>
-<br><br><br><br><br><br>
-             <div class="col-md-12">
-              <div class="col-md-12">
-                <div class="form-group">
-                    <h2>Best travel guide</h2>
+     
+ 
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header mb-5">
+        <div class="typography-line">
+          <h1>Search</h1>
+        </div>
+        <form (ngSubmit)="onSubmit()">
+            <div class="col-md-12">
+                  <p> Country Name :</p>
+                    <input type="text" 
+                    value="" 
+                    placeholder="Enter the name of a contry" 
+                    [(ngModel)]="countryName" name="countryName"
+                    class="form-control" 
+                    style="border-radius: 7;" />
+                  <p> Total Cost :</p>
+                  <input type="text" 
+                    value="" 
+                    placeholder="Enter a cost" 
+                    [(ngModel)]="totalCost" name="totalCost"
+                    class="form-control" 
+                    style="border-radius: 7;" />
+               
+                  <p> Global Rating :</p>
+                  <input type="text" 
+                    value="" 
+                    placeholder="Enter the rating" 
+                    [(ngModel)]="globalRating" name="globalRating"
+                    class="form-control" 
+                    style="border-radius: 7;" />
+           
+            </div>
+ 
+            <div class=" card-header">
+              <div class="container text-center">
+                <div class="row justify-content-md-center">
+              <button class="btn btn-primary btn-round" type="submit" >Search</button>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class=" col-md-12">
-                  <div class=" card">
-                    <div class=" card-header">
-                      <h3 class=" card-title">Travel guide</h3>
-                    </div>
-          
-                    <div class=" card-body">
-                      <div class=" table-responsive">
-                        <table class=" table tablesorter" id="">
-                          <thead class=" text-primary">
-                            <tr>
-                              <th>Name</th>
-                              <th>Rating</th>
-                              <th>Cost</th>
-                              <th class=" text-center">Rating</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>placeholder</td>
-                              <td>placeholder</td>
-                              <td>placehorder</td>
-                              <td class=" text-center">exemple</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-          
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+
+ 
+  <br><br><br><br>
+ 
+
+      <div class="col-md-12">
+        <div class=" col-md-12">
+          <div class=" card">
+            <div class=" card-header">
+              <h3 class=" card-title">Results</h3>
+            </div>
+ 
+            <div class=" card-body">
+              <div class=" table-responsive">
+               
+                <table class=" table tablesorter" id="">
+                  <thead class=" text-primary">
+                    <tr>
+                      <th >Country Name</th>
+                      <th >Total Cost</th>
+                      <th >Global Rating</th>
+                      <th class=" text-center">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let u of users">
+                      <td>{{u.countryName}}</td>
+                      <td>{{u.totalCost}}</td>
+                      <td>{{u.globalRating}}</td>
+                      <td class=" text-center">
+                        <div class=" card-header">
+                          <div class="container text-center">
+                            <div class="row justify-content-md-center">
+                          <button class="btn btn-primary btn-round" 
+                                  type="button" 
+                                  (click)="deleteTravelGuide(u.idTravelGuide)">
+                                  Delete
+                          </button>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <div class="col-md-12">
+    <div class="row justify-content-md-center">
+    <div class="section" id="carousel">
+      <div class="main-container">
+        <div class="col-md-12">
+          <ngb-carousel>
+            <ng-template ngbSlide>
+              <img class="d-block" src="assets/img/peoplehavingfun.jpg" alt="First slide" class="">>
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Treat yourself to a weekend at the beach!</h5>
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <img class="d-block" src="assets/img/paris.jpg" alt="Second slide">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Treat yourself to a weekend in Paris</h5>
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <img class="d-block" src="assets/img/rome.jpg" alt="Second slide">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Treat yourself to a weekend in Rome !</h5>
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <img class="d-block" src="assets/img/titre-restaurant.jpg" alt="Second slide">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Fly away ! !</h5>
+              </div>
+            </ng-template>
+          </ngb-carousel>
+        </div>
+      </div>
+  <br><br><br><br>
+  <div class="col-md-12">
+    <div class="container text-center">
+      <div class="row justify-content-md-center">
+        <div class="form-group">
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+<div style="text-align: center">
+  <form>
+  
+<a href="#" Onclick="javascript:window.print()">Print or download our Travel Guides in PDF format !!</a>
+
+  </form>
+</div>
+         

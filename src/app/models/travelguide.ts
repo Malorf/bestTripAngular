@@ -3,11 +3,11 @@ import { FormControl } from "@angular/forms";
 export class TravelGuide {
     idTravelGuide!: number;
     guideName!:string;
-    globalRating!:string;
+    globalRating!:number;
     countryName!:string;
     updateTravelGuide!:Date;
-    searchCtrl!:FormControl;
-    searchTypeCtrl!:FormControl;
+    travelCost!:number;
+
     statusTravelGuide!:{
         waiting, approved, refused
 
