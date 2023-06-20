@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { AccountService } from 'src/app/services/account.service';
 import { RoleService } from 'src/app/services/role.service';
 import { Account } from 'src/app/models/account';
-import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-admin',
@@ -58,7 +57,7 @@ export class AdminComponent {
       {
         const updatedAccount ={...account};
         updatedAccount.roles=[{idRole:2, nameRole:'admin'}, {idRole:1, nameRole:'user'}];
-        this.accountService.update(id, updatedAccount).subscribe(
+        this.accountService.updateRole(id, updatedAccount).subscribe(
           ()=>{
             this.findAllAccounts();
             alert("Account updated");
@@ -69,7 +68,7 @@ export class AdminComponent {
       {
         const updatedAccount ={...account};
         updatedAccount.roles=[{idRole:1, nameRole:'user'}];
-        this.accountService.update(id, updatedAccount).subscribe(
+        this.accountService.updateRole(id, updatedAccount).subscribe(
           ()=>{
             this.findAllAccounts();
             alert("Account updated");
@@ -80,7 +79,7 @@ export class AdminComponent {
       {
         const updatedAccount ={...account};
         updatedAccount.roles=[];
-        this.accountService.update(id, updatedAccount).subscribe(
+        this.accountService.updateRole(id, updatedAccount).subscribe(
           ()=>{
             this.findAllAccounts();
             alert("Account updated");
@@ -109,20 +108,6 @@ export class AdminComponent {
         window.location.href = mailToLink;
         console.log(mailToLink);
       }
-      
-      /*updateAccount(account: Account) {
-
-        this.accountService.updateAccountRoles(account.idAccount, selectedRoleIds).subscribe(
-            () => {
-                // Mise à jour des rôles du compte réussie
-                alert("Roles updated successfully");
-            },
-            error => {
-                // Gestion de l'erreur lors de la mise à jour des rôles du compte
-                console.error("Error updating account roles: ", error);
-            }
-        );
-    }*/
     
     
 }
