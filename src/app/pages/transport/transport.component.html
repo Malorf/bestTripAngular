@@ -35,17 +35,28 @@
   </div>
 
   <div class="col-md-12">
+    <form (ngSubmit)="onSubmit()">
     <div class="col-md-12">
-      <div class="form-group">
-          <h2>Choose a means of transport</h2>
+      <div class="form-group" >
+          <h2>Search a Transport</h2>
       </div>
     </div>
 
+    
     <div class="col-md-12">
       <div class="form-group">
-          <input type="text" value="" placeholder="Reserch Name of the compagny" class="form-control" style="border-radius: 7;" />
+          <input type="text" value="" placeholder="Reserch an Airline, a shipping company ..." class="form-control" 
+          [(ngModel)]="nameCompanyAT" name="nameCompanyAT"
+          [(ngModel)]="nameCompanyMT" name="nameCompanyMT"
+          [(ngModel)]="nameCompany" name="nameCompany"
+          />
       </div>
+   
+    <div class="col-md-4">
+        <button class="btn btn-primary btn-round" type="submit">Rechercher</button>
     </div>
+     </div>
+    </form>
   </div>
 
     <div class="col-md-6">
@@ -59,7 +70,7 @@
             <div class=" table-responsive">
               <table class=" table tablesorter" id="">
                 <thead class=" text-primary">
-                  <tr>
+                  <tr >
                     <th>Airline</th>
                     <th>Airplane Class</th>
                     <th>Cost</th>
@@ -67,25 +78,17 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>exemple</td>
-                    <td>exmple</td>
-                    <td>exemple</td>
-                    <td class=" text-center">exemple</td>
-                  </tr>
-                  <tr>
-                    <td>exemple</td>
-                    <td>exmple</td>
-                    <td>exemple</td>
-                    <td class=" text-center">exemple</td>
+                  <tr *ngFor="let a of airTransports">
+                    <td> {{a.nameCompany}} </td>
+                    <td> {{a.airplaneClass}} </td>
+                    <td> {{a.transportCost}} </td>
+                    <td class=" text-center"> {{a.transportRating}} </td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
-            <div class=" card-header">
-              <button class="btn btn-primary btn-round" type="button">Add a review</button>
-            </div>
+            
           </div>
       
           
@@ -132,30 +135,23 @@
               <thead class=" text-primary">
                 <tr>
                   <th>Name of Company</th>
+                  <th>Boat Class</th>
                   <th>Cost</th>
-                  <th>City</th>
-                  <th class=" text-center">Airplane Class</th>
+                  <th class=" text-center">Rating</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>exemple</td>
-                  <td>exmple</td>
-                  <td>exemple</td>
-                  <td class=" text-center">exemple</td>
+                <tr *ngFor="let a of maritimeTransports">
+                  <td > {{a.nameCompany}} </td>
+                  <td> {{a.boatClass}} </td>
+                  <td> {{a.transportCost}} </td>
+                  <td class=" text-center"> {{a.transportRating}} </td>
                 </tr>
-                <tr>
-                  <td>exemple</td>
-                  <td>exmple</td>
-                  <td>exemple</td>
-                  <td class=" text-center">exemple</td>
-                </tr>
+                
               </tbody>
             </table>
           </div>
-          <div class=" card-header">
-            <button class="btn btn-primary btn-round" type="button">Add a review</button>
-          </div>
+          
           
           </div>
 
@@ -196,95 +192,121 @@
     </div>
     </div>
 
-    <div class="col-md-12">
-      <div class="col-md-12">
-       
-          <div class="container text-center">
+    <div class="col-md-12" style="top: 100px;" >
+      <div class="col-md-12" >
+            <div class="container text-center">
               <div class="row justify-content-md-center">
                   <div class="col-md-12">
                       <h1 class="title">Add Reviews</h1>
-                      <h4 class="description"> Merci de remplir le formulaire ci-dessous. </h4>
+                      <h5 class="description"> Log in to add a review. </h5>
                   </div>
               </div>
-          </div>
+            </div>
       </div>
-   
-    <div class="col-md-12">
-      
-       
-        <div class="form-group">
-            <p>Selectionner une Catégories</p>
-            <select class="form-control"> 
-              <option>
-                  SelectTransportorPlace
-              </option>
-          </select>
-        </div>
-     
-    </div>
-    
-      <div class="col-md-12">
-        <div class="form-group">
-            <p>Selectionner une place</p>
-            <select class="form-control"> 
-              <option>
-              </option>
-          </select>
-        </div>
-      </div>
-    
   
+      <div class="col-md-10" style=" left: 100px ">
+        <div [hidden]="!authenticated()"> <!-- authenticated = true -->
+          <form  (ngSubmit)="saveTransport()">
+          <div class="col-md-12">
+            <div class="form-group">
+              <p>
+                Select a transport</p>
+                <select class="form-control " 
+                
+                [(ngModel)]="transport.nameCompany" name="nameCompany" 
+                [(ngModel)]="airTransport.nameCompany" name="nameCompany" 
+                [(ngModel)]="maritimeTransport.nameCompany" name="nameCompany" 
+                 > 
+                       
+                  <option *ngFor="let p of transports" [ngValue]="p">
+                    {{p.placeName}}
+                  </option>
+              </select>
+            </div>
+          </div>
+  
+          <div class="col-md-12">
+              <div class=" card">
+
+                <div class=" card-header">
+                  <h3 class=" card-title">Rating</h3>
+                  <div class="col-md-2">
+                  <input type="number" 
+                         value="" placeholder="Add note"
+                         [(ngModel)]="transport.transportRating" name ="transportRating" 
+                         [(ngModel)]="airTransport.transportRating" name ="transportRating" 
+                         [(ngModel)]="maritimeTransport.transportRating" name ="transportRating" 
+                         class="form-control" 
+                         style="border-radius: 7;" />
+                        </div>
+                </div>
+              
+                <div class=" card-header">
+                    <h3 class=" card-title">Description</h3>
+                    <textarea 
+
+                           maxlength="250"
+                           value="" 
+                           placeholder="Add a description" 
+                           [(ngModel)]="transport.description" name ="description" 
+                           [(ngModel)]="airTransport.description" name ="description" 
+                           [(ngModel)]="maritimeTransport.description" name ="description" 
+                           class="form-control" 
+                           style="border-radius: 7;" ></textarea>
+                </div>
+                <br>
+
+                <div >
+                  <div class="container text-center">
+                    <div class="row justify-content-md-center">
+                    <button class="btn btn-primary btn-round" >Add</button>
+                    </div>
+                    </div>
+                </div>
+              </div>
+          </div>
+        </form>
+        </div>
+      </div>
+  
+    
       <div class="col-md-12">
+        <div class="container text-center">
+          <div class="row justify-content-md-center">
+              <div class="col-md-12">
+                 <h2 class="title">REVIEWS</h2>
+              </div>
+          </div>
+        </div>
+      </div>
+  
+      
+      <div class="col-md-10" style=" left: 100px ">
         <div class=" col-md-12">
           <div class=" card">
-            <div class=" card-header">
-              <h3 class=" card-title">Rating</h3>
-              <input type="text" value="" placeholder="Ajouter un commentaire" class="form-control" style="border-radius: 7;" />
-            </div>
-          
-            <div class=" card-header">
-                <h3 class=" card-title">Description</h3>
-                <input type="text" value="" placeholder="Ajouter une note" class="form-control" style="border-radius: 7;" />
-            </div>
-  
-            <div>
-              <div class=" card-header">
-                <button class="btn btn-primary btn-round" type="button">Publier</button>
-              </div>
-            </div>
+            
+              <table class=" table tablesorter" id="">
+                <thead class=" text-primary">
+                  <tr>
+                    <th>Transport Company</th>
+                    <th>Rating</th>
+                    <th class=" text-center">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let p of transports" [ngValue]="p">
+                    <td > {{p.nameCompany}} </td>
+                    <td> {{p.transportRating}} </td>
+                    <td class=" text-center"
+                    *ngFor="let r of reviews" [ngValue]="r"> {{p.description}} </td>
+                  </tr>
+                </tbody>
+              </table>
           </div>
-        </div>
-
-    </div>
-
-    <div class="col-md-12">
-      <div class=" col-md-12">
-        <div class=" card" style="background-color: currentColor;">
-          <div class=" card-header">
-            <h3 class=" card-title">Username</h3>
-            <input type="text" value="" placeholder="Ajouter un commentaire" class="form-control" style="border-radius: 7;" />
-          </div>
-
-          <div class=" card-header">
-              <h3 class=" card-title" >Rating</h3>
-
-              <input type="text" value="" placeholder="Ajouter une note" class="form-control" style="border-radius: 7;" />
-          </div>
-          <div class=" card-header">
-              <h3 class=" card-title">Description</h3>
-              <input type="text" value="" placeholder="Ajouter une note" class="form-control" style="border-radius: 7;" />
-          </div>
-
-          
-
-
         </div>
       </div>
-
-  </div>
-
-
-  </div>
+  
+      </div>
 
   </div>
   </div>

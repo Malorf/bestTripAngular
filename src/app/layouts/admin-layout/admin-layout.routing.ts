@@ -33,7 +33,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: "typography", component: TypographyComponent },
   { path: "account", component: AccountComponent },
   { path: "travelguide", component: TravelGuideComponent },
-  { path: "review", component: ReviewComponent },
+ /*{ path: "review", component: ReviewComponent },*/
   { path: "newsletter", component: NewsletterComponent },
   { path: "admin", component: AdminComponent },
   { path: "place", component: PlaceComponent },

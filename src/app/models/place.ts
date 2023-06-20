@@ -1,11 +1,17 @@
+
 import { Adress } from "./adress";
+import { TravelGuide } from "./travelguide";
 
 export class Place {
    idPlace !:number;
    placeName!: string;
-   adress!:Adress;
+   
    placeRating!:number;
    placeCost!:number;
+   travelGuides!:TravelGuide[];
+   adress!:Adress[];
+   description!:string;
+   
 }
 
 export class Restaurant extends Place {
@@ -19,3 +25,4 @@ export class Hotel extends Place {
 export class Activity extends Place {
    free!:boolean;
 }
+

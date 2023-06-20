@@ -1,26 +1,124 @@
 
 <div class="content">
-    <div class=" row">
+  <div class=" row">
 
 
-        <div class="col-md-12">
-            <div class="section">
-              <div class="container text-center">
-                  <div class="row justify-content-md-center">
-                      <div class="col-md-12 col-lg-8">
-                          <h1 class="title">Top review of places</h1>
-                          <h4 class="description"> Retrouvez ici toutes les bonnes adresses testées pour un voyage en toute sérénité </h4>
-                      </div>
+      <div class="col-md-12">
+          <div class="section">
+            <div class="container text-center">
+                <div class="row justify-content-md-center">
+                    <div class="col-md-12 col-lg-8">
+                        <h1 class="title">Top review of places</h1>
+                        <h4 class="description"> Find here all the good addresses tested for a trip with complete peace of mind </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+    <div class="col-md-12">
+      <div class="section" id="carousel">
+      <div class="main-container">
+        <div class="row justify-content-center">
+          <div class="col-md-12 col-lg-9">
+            <ngb-carousel>
+              <ng-template ngbSlide>
+                <img class="d-block" src="assets/img/avion.jpg" alt="First slide">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>ajouter un titre</h5>
                   </div>
+              </ng-template>
+              <ng-template ngbSlide>
+                <img class="d-block" src="assets/img/avion2.jpg" alt="Second slide">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>ajouter un titre</h5>
+                  </div>
+              </ng-template>
+              <ng-template ngbSlide>
+                <img class="d-block" src="assets/img/boat.jpg" alt="Third slide">
+                    <div class="carousel-caption d-none d-md-block">
+                    <h5>Yellowstone National Park, United States</h5>
+                  </div>
+              </ng-template>
+            </ngb-carousel>
+          </div>
+        </div>
+      </div>
+      </div>
+  <br><br><br>
+  </div>
+
+  <div class="col-md-12">
+    <form (ngSubmit)="onSubmit()">
+    <div class="col-md-12">
+      <div class="form-group" >
+          <h2>Search a place</h2>
+      </div>
+    </div>
+
+    
+    <div class="col-md-12">
+      <div class="form-group">
+          <input type="text" value="" placeholder="Reserch an hotel, a restaurant, an acitivy ..." class="form-control" 
+          [(ngModel)]="namePlace" name="namePlace"
+          [(ngModel)]="nameHotel" name="nameHotel"
+          [(ngModel)]="nameRestaurant" name="nameRestaurant"
+          [(ngModel)]="nameActivity" name="nameActivity"
+          />
+      </div>
+   
+    <div class="col-md-4">
+        <button class="btn btn-primary btn-round" type="submit">Rechercher</button>
+    </div>
+     </div>
+    </form>
+  </div>
+
+    <div class="col-md-6">
+      <div class=" col-md-12">
+        <div class=" card">
+          <div class=" card-header">
+            <h3 class=" card-title">Hotels</h3>
+          </div>
+
+          <div class=" card-body">
+            <div class=" table-responsive">
+              
+              <table class=" table tablesorter" id="">
+                <thead class=" text-primary">
+                  <tr>
+                    <th >Hotel</th>
+                    <th >Stars</th>
+                    <th >Address</th>
+                    <th >Cost</th>
+                    <th class=" text-center">Rating</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let p of hotels">
+                    <td>{{p.placeName}}</td>
+                    <td>{{p.stars}}</td>
+                    <td>{{p.adress}}</td>
+                    <td>{{p.placeCost}}</td>
+                    <td class=" text-center">{{p.placeRating}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+            </div>
+            <div class=" card-header">
+              <button class="btn btn-primary btn-round" type="button">Add a review</button>
               </div>
           </div>
         </div>
-  
-      <div class="col-md-12">
-        <div class="section" id="carousel">
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="section" id="carousel">
         <div class="main-container">
           <div class="row justify-content-center">
-            <div class="col-md-12 col-lg-9">
+            <div class="col-md-12">
               <ngb-carousel>
                 <ng-template ngbSlide>
                   <img class="d-block" src="assets/img/avion.jpg" alt="First slide">
@@ -44,342 +142,266 @@
             </div>
           </div>
         </div>
-        </div>
-    <br><br><br>
     </div>
-  
-    <div class="col-md-12" (ngSubmit)="onSubmit()">
-      <div class="col-md-12">
-        <div class="form-group" >
-            <h2>Search a place</h2>
-        </div>
-      </div>
-  
-      
-      <div class="col-md-12">
-        <div class="form-group">
-            <input type="text" value="" placeholder="Reserch an hotel, a restaurant, an acitivy ..." class="form-control" 
-            [(ngModel)]="namePlace" name="namePlace"/>
-        </div>
-      </div>
-      <div class="col-md-4">
-          <button class="btn btn-primary btn-round" type="submit">Rechercher</button>
-      </div>
-      
+    </div>
 
+
+    <div class=" col-md-6">
+      <div class=" col-md-12">
+        <div class=" card">
+          <div class=" card-header">
+            <h3 class=" card-title">Restaurants</h3>
+          </div>
+
+          <div class=" card-body">
+            <div class=" table-responsive">
+              
+              <table class=" table tablesorter" id="">
+                <thead class=" text-primary">
+                  <tr>
+                    <th >Restaurant</th>
+                    <th>Take away</th>
+                    <th>Address</th>
+                    <th>Cost</th>
+                    <th class=" text-center">Rating</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let r of restaurants">
+                    <td>{{r.placeName}}</td>
+                    <td>{{r.takeAway}}</td>
+                    <td>{{r.adress}}</td>
+                    <td>{{r.placeCost}}</td>
+                    <td class=" text-center">{{r.placeRating}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            
+            </div>
+
+            <div class=" card-header">
+              <button class="btn btn-primary btn-round" type="button">Add a review</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="section" id="carousel">
+        <div class="main-container">
+          <div class="row justify-content-center">
+            <div class="col-md-12">
+              <ngb-carousel>
+                <ng-template ngbSlide>
+                  <img class="d-block" src="assets/img/avion.jpg" alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>ajouter un titre</h5>
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                  <img class="d-block" src="assets/img/avion2.jpg" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>ajouter un titre</h5>
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                  <img class="d-block" src="assets/img/boat.jpg" alt="Third slide">
+                      <div class="carousel-caption d-none d-md-block">
+                      <h5>Yellowstone National Park, United States</h5>
+                    </div>
+                </ng-template>
+              </ngb-carousel>
+            </div>
+          </div>
+        </div>
+    </div>
     </div>
   
-      <div class="col-md-6">
-        <div class=" col-md-12">
-          <div class=" card">
-            <div class=" card-header">
-              <h3 class=" card-title">Hotels</h3>
+    <div class=" col-md-6">
+      <div class=" col-md-12">
+        <div class=" card">
+          <div class=" card-header">
+            <h3 class=" card-title">Activities</h3>
+          </div>
+
+          <div class=" card-body">
+            <div class=" table-responsive">
+              <table class=" table tablesorter" id="">
+                <thead class=" text-primary">
+                  <tr>
+                    <th>Activity</th>
+                    <th>Free</th>
+                    <th>Address</th>
+                    <th>Cost</th>
+                    <th class=" text-center">Rating</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let a of activities">
+                    <td>{{a.placeName}}</td>
+                    <td>{{a.free}}</td>
+                    <td>{{a.adress}}</td>
+                    <td>{{a.placeCost}}</td>
+                    <td class=" text-center">{{a.placeRating}}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-  
-            <div class=" card-body">
-              <div class=" table-responsive">
-                <form  (ngSubmit)="savePlace()">
-                <table class=" table tablesorter" id="">
-                  <thead class=" text-primary">
-                    <tr>
-                      <th >Name Hotel</th>
-                      <th >Stars</th>
-                      <th >Address</th>
-                      <th >Cost</th>
-                      <th class=" text-center">Rating</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let p of places">
-                      <td>{{p.placeName}}</td>
-                      <td>{{p.stars}}</td>
-                      <td>{{p.adress}}</td>
-                      <td>{{p.placeCost}}</td>
-                      <td class=" text-center">{{p.placeRating}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-                </form>
-              </div>
-              <div class=" card-header">
-                <button class="btn btn-primary btn-round" type="button">Add a review</button>
+            <div class=" card-header">
+            <button class="btn btn-primary btn-round" type="button">Add a review</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    <div class="col-md-6">
+      <div class="section" id="carousel">
+        <div class="main-container">
+          <div class="row justify-content-center">
+            <div class="col-md-12">
+              <ngb-carousel>
+                <ng-template ngbSlide>
+                  <img class="d-block" src="assets/img/avion.jpg" alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>ajouter un titre</h5>
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                  <img class="d-block" src="assets/img/avion2.jpg" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>ajouter un titre</h5>
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                  <img class="d-block" src="assets/img/boat.jpg" alt="Third slide">
+                      <div class="carousel-caption d-none d-md-block">
+                      <h5>Yellowstone National Park, United States</h5>
+                    </div>
+                </ng-template>
+              </ngb-carousel>
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
+    
+    <div class="col-md-12" style="top: 100px;" >
+    <div class="col-md-12" >
+          <div class="container text-center">
+            <div class="row justify-content-md-center">
+                <div class="col-md-12">
+                    <h1 class="title">Add Reviews</h1>
+                    <h4 class="description"> Log in to add a review. </h4>
                 </div>
             </div>
           </div>
-        </div>
-      </div>
-  
-      <div class="col-md-6">
-        <div class="section" id="carousel">
-          <div class="main-container">
-            <div class="row justify-content-center">
-              <div class="col-md-12">
-                <ngb-carousel>
-                  <ng-template ngbSlide>
-                    <img class="d-block" src="assets/img/avion.jpg" alt="First slide">
-                      <div class="carousel-caption d-none d-md-block">
-                        <h5>ajouter un titre</h5>
-                      </div>
-                  </ng-template>
-                  <ng-template ngbSlide>
-                    <img class="d-block" src="assets/img/avion2.jpg" alt="Second slide">
-                      <div class="carousel-caption d-none d-md-block">
-                        <h5>ajouter un titre</h5>
-                      </div>
-                  </ng-template>
-                  <ng-template ngbSlide>
-                    <img class="d-block" src="assets/img/boat.jpg" alt="Third slide">
-                        <div class="carousel-caption d-none d-md-block">
-                        <h5>Yellowstone National Park, United States</h5>
-                      </div>
-                  </ng-template>
-                </ngb-carousel>
-              </div>
-            </div>
-          </div>
-      </div>
-      </div>
-  
-  
-      <div class=" col-md-6">
-        <div class=" col-md-12">
-          <div class=" card">
-            <div class=" card-header">
-              <h3 class=" card-title">Restaurants</h3>
-            </div>
-  
-            <div class=" card-body">
-              <div class=" table-responsive">
-                <form  (ngSubmit)="savePlace()">
-                <table class=" table tablesorter" id="">
-                  <thead class=" text-primary">
-                    <tr>
-                      <th [(ngModel)]="place.placeName" name="placeName">Name Restaurant</th>
-                      <th>Take away</th>
-                      <th>Address</th>
-                      <th>Cost</th>
-                      <th class=" text-center">Rating</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let p of places">
-                      <td>{{p.placeName}}</td>
-                      <td>{{p.takeAway}}</td>
-                      <td>{{p.adress}}</td>
-                      <td>{{p.placeCost}}</td>
-                      <td class=" text-center">{{p.placeRating}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </form>
-              </div>
+    </div>
 
-              <div class=" card-header">
-                <button class="btn btn-primary btn-round" type="button">Add a review</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <div class="col-md-6">
-        <div class="section" id="carousel">
-          <div class="main-container">
-            <div class="row justify-content-center">
-              <div class="col-md-12">
-                <ngb-carousel>
-                  <ng-template ngbSlide>
-                    <img class="d-block" src="assets/img/avion.jpg" alt="First slide">
-                      <div class="carousel-caption d-none d-md-block">
-                        <h5>ajouter un titre</h5>
-                      </div>
-                  </ng-template>
-                  <ng-template ngbSlide>
-                    <img class="d-block" src="assets/img/avion2.jpg" alt="Second slide">
-                      <div class="carousel-caption d-none d-md-block">
-                        <h5>ajouter un titre</h5>
-                      </div>
-                  </ng-template>
-                  <ng-template ngbSlide>
-                    <img class="d-block" src="assets/img/boat.jpg" alt="Third slide">
-                        <div class="carousel-caption d-none d-md-block">
-                        <h5>Yellowstone National Park, United States</h5>
-                      </div>
-                  </ng-template>
-                </ngb-carousel>
-              </div>
-            </div>
-          </div>
-      </div>
-      </div>
-    
-      <div class=" col-md-6">
-        <div class=" col-md-12">
-          <div class=" card">
-            <div class=" card-header">
-              <h3 class=" card-title">Activities</h3>
-            </div>
-  
-            <div class=" card-body">
-              <div class=" table-responsive">
-                <table class=" table tablesorter" id="">
-                  <thead class=" text-primary">
-                    <tr>
-                      <th>Name Activity</th>
-                      <th>Free</th>
-                      <th>Address</th>
-                      <th>Cost</th>
-                      <th class=" text-center">Rating</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let p of places">
-                      <td>{{p.placeName}}</td>
-                      <td>{{p.stars}}</td>
-                      <td>{{p.adress}}</td>
-                      <td>{{p.placeCost}}</td>
-                      <td class=" text-center">{{p.placeRating}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class=" card-header">
-              <button class="btn btn-primary btn-round" type="button">Add a review</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-     
-      <div class="col-md-6">
-        <div class="section" id="carousel">
-          <div class="main-container">
-            <div class="row justify-content-center">
-              <div class="col-md-12">
-                <ngb-carousel>
-                  <ng-template ngbSlide>
-                    <img class="d-block" src="assets/img/avion.jpg" alt="First slide">
-                      <div class="carousel-caption d-none d-md-block">
-                        <h5>ajouter un titre</h5>
-                      </div>
-                  </ng-template>
-                  <ng-template ngbSlide>
-                    <img class="d-block" src="assets/img/avion2.jpg" alt="Second slide">
-                      <div class="carousel-caption d-none d-md-block">
-                        <h5>ajouter un titre</h5>
-                      </div>
-                  </ng-template>
-                  <ng-template ngbSlide>
-                    <img class="d-block" src="assets/img/boat.jpg" alt="Third slide">
-                        <div class="carousel-caption d-none d-md-block">
-                        <h5>Yellowstone National Park, United States</h5>
-                      </div>
-                  </ng-template>
-                </ngb-carousel>
-              </div>
-            </div>
-          </div>
-      </div>
-      </div>
-      
-     
-      <div class="col-md-10" style=" left: 150px; top: 100px; ">
-        <div class="col-md-12">
-            <div class="container text-center">
-              <div class="row justify-content-md-center">
-                  <div class="col-md-12">
-                      <h1 class="title">Add Reviews</h1>
-                      <h4 class="description"> Merci de remplir le formulaire ci-dessous. </h4>
-                  </div>
-              </div>
-          </div>
-        </div>
-   
+    <div class="col-md-10" style=" left: 100px ">
+      <div [hidden]="!authenticated()"> <!-- authenticated = true -->
+        <form  (ngSubmit)="savePlace()">
         <div class="col-md-12">
           <div class="form-group">
-            <p>Selectionner une Catégories</p>
-              <select class="form-control"> 
-                <option>
-                  SelectTransportorPlace
+            <p>Select a place</p>
+              <select class="form-control" name="places"
+              [(ngModel)]="place.placeName" name="placeName"
+              [(ngModel)]="hotel.placeName" name="placeName" 
+              [(ngModel)]="activity.placeName" name="placeName"
+              [(ngModel)]="restaurant.placeName" name="placeName"   >
+                     
+                <option *ngFor="let p of places" [ngValue]="p">
+                  {{p.placeName}}
                 </option>
             </select>
           </div>
         </div>
-    
-          <div class="col-md-12">
-            <div class="form-group">
-                <p>Selectionner une place</p>
-                <select class="form-control"> 
-                  <option>
-                  </option>
-              </select>
-            </div>
-          </div>
 
-          <div class="col-md-12">
-            
-              <div class=" card">
-                <div class=" card-header">
-                  <h3 class=" card-title">Rating</h3>
-                  <input type="text" value="" placeholder="Ajouter un commentaire" class="form-control" style="border-radius: 7;" />
-                </div>
-              
-                <div class=" card-header">
-                    <h3 class=" card-title">Description</h3>
-                    <input type="text" value="" placeholder="Ajouter une note" class="form-control" style="border-radius: 7;" />
-                </div>
-                <br><br><br>
-                
-                <div class=" card-header">
-                  <h3 class=" card-title">Connecter vous avec :</h3>
-                    <div>
-                      <p>Name :</p>
-                        <input type="text" value="" placeholder="Ajouter une note" class="form-control" style="border-radius: 7;" />
-                      <br>
-                        <p>E-Mail :</p>
-                        <input type="text" value="" placeholder="Ajouter une note" class="form-control" style="border-radius: 7;" /> 
-                    </div>
-                </div>
-
-              
-                
-                <div class=" card-header">
-                    <button class="btn btn-primary btn-round" type="button" style="left: 550px;">Publier</button>
-                </div>
-              </div>
-          </div>
-        
         <div class="col-md-12">
-          <div class="container text-center">
-            <div class="row justify-content-md-center">
-                <div class="col-md-12">
-                    <h2 class="title">Les avis</h2>
-                </div>
-            </div>
-          </div>
-        </div>
+            <div class=" card">
+              <div class=" card-header">
+                <h3 class=" card-title">Rating</h3>
+                <input type="number" 
+                       value="" placeholder="Ajouter un commentaire" 
+                       [(ngModel)]="place.placeRating" name ="placetRating" 
+                       [(ngModel)]="hotel.placeRating" name ="placetRating" 
+                       [(ngModel)]="activity.placeRating" name ="placetRating" 
+                       [(ngModel)]="restaurant.placeRating" name ="placetRating" 
+                       class="form-control" 
+                       style="border-radius: 7;" />
+              </div>
+            
+              <div class=" card-header">
+                  <h3 class=" card-title">Description</h3>
+                  <textarea 
+                  maxlength="250" 
+                  value="" 
+                  placeholder="Ajouter une Description" 
+                  [(ngModel)]="place.description" name ="description" 
+                  [(ngModel)]="hotel.description" name ="description" 
+                  [(ngModel)]="activity.description" name ="description" 
+                  [(ngModel)]="restaurant.description" name ="description" 
+                  class="form-control" 
+                  style="border-radius: 7;"></textarea>
+                  
+              </div>
+              <br>
 
-          <div class="col-md-12">
-            <div class=" col-md-12">
-              <div class=" card">
-                <div class=" card-header">
-                  <h3 class=" card-title">Username</h3>
-                  <input type="text" value="" placeholder="Ajouter un commentaire" class="form-control" style="border-radius: 7;" />
-                </div>
-
-                <div class=" card-header">
-                    <h3 class=" card-title" >Rating</h3>
-
-                    <input type="text" value="" placeholder="Ajouter une note" class="form-control" style="border-radius: 7;" />
-                </div>
-                <div class=" card-header">
-                    <h3 class=" card-title">Description</h3>
-                    <input type="text" value="" placeholder="Ajouter une note" class="form-control" style="border-radius: 7;" />
-                </div>
+              <div >
+                <div class="container text-center">
+                  <div class="row justify-content-md-center">
+                  <button class="btn btn-primary btn-round">Ajouter</button>
+                  </div>
+                  </div>
               </div>
             </div>
-          </div>
+        </div>
+      </form>
+      </div>
+    </div>
+
+ 
+        
+   
+
+    <div class="col-md-12">
+      <div class="container text-center">
+        <div class="row justify-content-md-center">
+            <div class="col-md-12">
+               <h2 class="title">REVIEWS</h2>
+            </div>
         </div>
       </div>
-     
     </div>
+
+    
+    <div class="col-md-10" style=" left: 100px ">
+      <div class=" col-md-12">
+        <div class=" card">
+          
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Place</th>
+                  <th>Rating</th>
+                  <th class=" text-center">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let p of places" [ngValue]="p">
+                  <td >{{p.placeName}} </td>
+                  <td> {{p.placeRating}} </td>
+                  <td class=" text-center"
+                  > {{p.desciption}} </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+    </div>
+      
+  </div>
+  </div>
+   

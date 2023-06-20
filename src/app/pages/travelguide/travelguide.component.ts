@@ -15,9 +15,11 @@ import { TravelGuideService } from "src/app/services/travelguide.service";
 
 })
 export class TravelGuideComponent implements OnInit{
+
   users!:any[]; 
   countries:any[];
   tg: TravelGuide=new TravelGuide();
+
   
   countryName!:string;
   totalCost!:number;
@@ -28,9 +30,18 @@ export class TravelGuideComponent implements OnInit{
   constructor( private https: HttpClient, private travelGuideService:TravelGuideService, private router:Router){
     }
  
+
   
+  constructor( private travelGuideService:TravelGuideService, private router:Router){
+  }
+  ngOnInit(): void {
   
+  this.countryName = '',
+  this.totalCost [0] , 
+  this.globalRating  [0],
+  this.findByCountryNameAndTotalCostAndGlobalRating();
   
+
   ngOnInit(): void {
 
     this.countryName = '',
@@ -73,6 +84,7 @@ deleteTravelGuide(id:number){
 
 onSubmit(){
   this.findByCountryNameAndTotalCostAndGlobalRating();
+
 
 }
 

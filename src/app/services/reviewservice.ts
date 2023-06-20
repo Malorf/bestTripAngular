@@ -8,7 +8,7 @@ import { Review } from '../models/review';
 })
 export class ReviewService {
 
-  private BASE_URL = "http://localhost:9090/review";
+  private BASE_URL = "http://localhost:8080/reviews";
 
   constructor(private httpClient:HttpClient) { }
  
