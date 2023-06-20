@@ -1,13 +1,17 @@
+import { Review } from "./review";
+
 export class Transport {
 idTransport!:number;
-transportCoast!:number;
+transportCost!:number;
 nameCompany!: string;
-transporRating!:number;
+transportRating!:number;
 timeTravel!:number;
+review!: Review[];
+description!:string;
 }
 
 export class AirTransport extends Transport  {
-    airPlaceClass!: number;
+    airplaneClass!: string;
 }
 
 export class MaritimeTransport extends Transport{

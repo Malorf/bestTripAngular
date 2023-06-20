@@ -1,1 +1,91 @@
-<p>activity works!</p>
+<div class="content">
+    <div class=" row">
+
+        <div class="col-md-12">
+            <div Class="card">
+                <div class="card-header mb-12">
+                    <form (ngSubmit)="onSubmit()"> 
+                    <div class="typography-line">
+                        <h1>Research</h1>
+                    </div>
+                    <div class="col-md-6">
+                        <p> Publication by Dates :</p>
+                        <input type="text" 
+                        value="" 
+                        placeholder="Entrer la date de publication" 
+                        [(ngModel)]="publicationDate" name="publicationDate"
+                        class="form-control" 
+                        style="border-radius: 7;" />
+                    </div>
+                    <div class=" card-header">
+                    <div class="container text-center">
+                       <div class="row justify-content-md-center">
+                          <button class="btn btn-primary btn-round" type="submit" >Recherche</button>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+    
+
+      <div class="col-md-12">
+        <div CLass="card">
+           <div class="card-header mb-12">
+              <div class="typography-line">
+                 <h1>Research</h1>
+                     <form (ngSubmit)="onSubmit()">    
+      
+
+  
+    
+    
+    
+  
+    </div>
+    
+    <div class="col-md-12">
+    <div class=" col-md-12">
+    <div class=" card">
+    <div class=" card-header">
+    <h3 class=" card-title">Resultats de la recherche</h3>
+    </div>
+    
+    <div class=" card-body">
+    <div class=" table-responsive">
+    <table class=" table tablesorter" id="">
+    <thead class=" text-primary">
+    <tr>
+    <th >publicationDate</th>
+    <th class=" text-center">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let u of user">
+    <td>{{u.publicationDate}}</td>
+    <td class=" text-center">
+    <div class=" card-header">
+    <div class="container text-center">
+    <div class="row justify-content-md-center">
+    <button class="btn btn-primary btn-round" 
+    type="button" 
+    (click)="deleteTravelGuide(u.idTravelGuide)">
+    Delete
+    </button>
+    </div>
+    </div>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>

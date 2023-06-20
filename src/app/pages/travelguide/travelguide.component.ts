@@ -15,54 +15,56 @@ import { TravelGuideService } from "src/app/services/travelguide.service";
 
 })
 export class TravelGuideComponent implements OnInit{
+
   users!:any[]; 
   countries:any[];
-  
+  tg: TravelGuide=new TravelGuide();
   countryName!:string;
   totalCost!:number;
   globalRating!:number;
-  title = 'best_trip_db';
-  data = [];
-
-  constructor( private http: HttpClient, private travelGuideService:TravelGuideService){
-    }
- 
   
-  
-  
+  constructor( private travelGuideService:TravelGuideService, private router:Router){
+  }
   ngOnInit(): void {
-
-    this.countryName = '';
-    this.findByCountryName();
-
-    this.totalCost= 2;
-    this.findByTotalCost();
-
-    this.globalRating= 2;
-    this.findByGlobalRating();
-
-
-  }
-  findByCountryName(){
-    this.travelGuideService.findByCountryName(this.countryName).subscribe(data =>{
-      this.users = data;
-    })
-  }
-  findByTotalCost(){
-    this.travelGuideService.findByTotalCost(this.totalCost).subscribe(data =>{
-      this.users = data;
-    })
   
-}
-findByGlobalRating(){
-  this.travelGuideService.findByGlobalRating(this.totalCost).subscribe(data =>{
-    this.users = data;
+  this.countryName = '',
+  this.totalCost [0] , 
+  this.globalRating  [0],
+  this.findByCountryNameAndTotalCostAndGlobalRating();
+  
+  }
+  findByCountryNameAndTotalCostAndGlobalRating(){
+  this.travelGuideService.findByCountryNameAndTotalCostAndGlobalRating(this.countryName,this.totalCost,this.globalRating).subscribe(data =>{
+  this.users = data;
   })
-
-}
-onSubmit(){
-  this.findByCountryName();
-  this.findByTotalCost();
-  this.findByGlobalRating();
-}
+  }
+  saveTravelGuide(){
+  this.travelGuideService.save(this.tg).subscribe(
+  () => {
+  this.findByCountryNameAndTotalCostAndGlobalRating();
+  this.tg = new TravelGuide();
+  }
+  )
+  }
+  
+  editTravelGuide(travelGuide:TravelGuide){
+  localStorage.removeItem("editUserId");
+  localStorage.setItem("editUserId",travelGuide.idTravelGuide.toString());
+  this.router.navigate(['/editUser',travelGuide.idTravelGuide]);
+  }
+  
+  deleteTravelGuide(id:number){
+  this.travelGuideService.delete(id).subscribe(
+  () => {
+  
+  }
+  )
+  }
+  
+  
+  
+  onSubmit(){
+  this.findByCountryNameAndTotalCostAndGlobalRating();
+  
+  }
 }

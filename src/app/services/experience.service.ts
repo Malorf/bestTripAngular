@@ -8,7 +8,7 @@ import { HttpClient, HttpRequest } from '@angular/common/http';
 })
 export class ExperienceService {
 
-  private BASE_URL = "http://localhost:8080/experience";
+  private BASE_URL = "http://localhost:8080/experiences";
 
   constructor(private httpClient:HttpClient) { }
  
